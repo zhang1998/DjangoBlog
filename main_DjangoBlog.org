@@ -25,4 +25,22 @@ CLOSED: [2020-10-23 五 15:46]
 :END:
 ** TODO 图片和文字的复杂结合
 *** TODO 添加文字的部分
+**** DONE 先看懂部分代码
+CLOSED: [2020-10-23 五 16:08]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-23 五 16:08]
+:END:
+主要是找到 他的内容才能进行自己的修改
+
+./blog/models.py:        '文章状态',
+./blog/migrations/0001_initial.py:                ('status', models.CharField(choices=[('d', '草稿')
+
+这货  就是直接写的model  然后调用的  我感觉
+***** TODO 主要是
+**** TODO 直接使用admin添加内容
+**** TODO 简单的准备内容
+1. [ ] 添加app部分
+2. [ ] 复制老齐的app部分
+**** TODO 进行修改的测试
+**** TODO 设计页面进行添加内容
 *** TODO 展示内容的部分
