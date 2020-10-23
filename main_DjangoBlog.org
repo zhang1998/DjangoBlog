@@ -1,0 +1,28 @@
+#+Title 为了适应自己想做的网站 对这个项目进行部分修改
+admin:admin
+test:qazxcvbn
+test2:qazxcvbn
+* TODO 尝试和实验
+** DONE 实验这个网站
+CLOSED: [2020-10-23 五 15:46]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-23 五 15:46]
+:END:
+*** DONE 解决邮箱登录的问题
+CLOSED: [2020-10-23 五 15:42]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-23 五 15:42]
+:END:
+*** DONE 实现文章的发布功能
+CLOSED: [2020-10-23 五 15:46]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-23 五 15:46]
+:END:
+*** DONE 实验功能
+CLOSED: [2020-10-23 五 15:46]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-23 五 15:46]
+:END:
+** TODO 图片和文字的复杂结合
+*** TODO 添加文字的部分
+*** TODO 展示内容的部分
