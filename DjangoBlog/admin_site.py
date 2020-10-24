@@ -27,7 +27,7 @@ from owntracks.admin import *
 
 
 #my add
-from blog.models import Myarticle
+
 
 
 
