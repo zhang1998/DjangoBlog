@@ -24,6 +24,9 @@ from oauth.admin import *
 from servermanager.admin import *
 from comments.admin import *
 from owntracks.admin import *
+from mytest.models import BlogArticles,Test
+
+
 
 
 class DjangoBlogAdminSite(AdminSite):
@@ -71,3 +74,6 @@ admin_site.register(OwnTrackLog, OwnTrackLogsAdmin)
 admin_site.register(Site, SiteAdmin)
 
 admin_site.register(LogEntry, LogEntryAdmin)
+
+
+#自己的测试
