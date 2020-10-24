@@ -297,7 +297,11 @@ CLOSED: [2020-10-24 六 15:42]
 4. [X] 注册
 5. [X] 测试
 ** TODO 自己修改 注册的 内容 进行修改
-*** TODO 把image  与 文字内容对应的部分创建好
+*** DONE 把image  与 文字内容对应的部分创建好
+CLOSED: [2020-10-24 六 15:47]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-24 六 15:47]
+:END:
 能够使用admin  进行管理
 1. [X] models
 2. [X] make
