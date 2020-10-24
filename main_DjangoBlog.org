@@ -144,8 +144,136 @@ admin.site.register(article,BlogArticleAdmin)
 3. [ ] 写入
 4. [ ] 测试
 
+**** USEFULL 参考class Article(BaseModel): 进行修改
+CLOSED: [2020-10-24 六 15:34]
+:LOGBOOK:
+- State "USEFULL"    from "TODO"       [2020-10-24 六 15:34] \\
+  直接在blog  按照他的规则添加 之后 修改成功了  接下来按照自己的思路进行修改
+:END:
+#+BEGIN_SRC python
+./blog/admin.py:from .models import Article, Category, Tag, Links, SideBar, BlogSettings
+./blog/admin.py:class ArticleListFilter(admin.SimpleListFilter):
+./blog/admin.py:        authors = list(set(map(lambda x: x.author, Article.objects.all())))
+./blog/admin.py:class ArticleForm(forms.ModelForm):
+./blog/admin.py:        model = Article
+./blog/admin.py:class ArticlelAdmin(admin.ModelAdmin):
+./blog/admin.py:    form = ArticleForm
+./blog/admin.py:    list_filter = (ArticleListFilter, 'status', 'type', 'category', 'tags')
+./blog/admin.py:        form = super(ArticlelAdmin, self).get_form(request, obj, **kwargs)
+./blog/admin.py:        super(ArticlelAdmin, self).save_model(request, obj, form, change)
+./blog/templatetags/blog_tags.py:from blog.models import Article, Category, Tag, Links, SideBar, LinkShowType
+./blog/templatetags/blog_tags.py:    recent_articles = Article.objects.filter(
+./blog/templatetags/blog_tags.py:    most_read_articles = Article.objects.filter(status='p').order_by(
+./blog/templatetags/blog_tags.py:    dates = Article.objects.datetimes('created_time', 'month', order='DESC')
+匹配到二进制文件 ./blog/templatetags/__pycache__/blog_tags.cpython-39.pyc
+./blog/urls.py:        views.ArticleDetailView.as_view(),
+./blog/views.py:from blog.models import Article, Category, Tag, Links, LinkShowType
+./blog/views.py:class ArticleListView(ListView):
+./blog/views.py:        return super(ArticleListView, self).get_context_data(**kwargs)
+./blog/views.py:class IndexView(ArticleListView):
+./blog/views.py:        article_list = Article.objects.filter(type='a', status='p')
+./blog/views.py:class ArticleDetailView(DetailView):
+./blog/views.py:    model = Article
+./blog/views.py:        obj = super(ArticleDetailView, self).get_object()
+./blog/views.py:        return super(ArticleDetailView, self).get_context_data(**kwargs)
+./blog/views.py:class CategoryDetailView(ArticleListView):
+./blog/views.py:        article_list = Article.objects.filter(
+./blog/views.py:class AuthorDetailView(ArticleListView):
+./blog/views.py:        article_list = Article.objects.filter(
+./blog/views.py:class TagDetailView(ArticleListView):
+./blog/views.py:        article_list = Article.objects.filter(
+./blog/views.py:class ArchivesView(ArticleListView):
+./blog/views.py:        return Article.objects.filter(status='p').all()
+./blog/models.py:            Article) and 'update_fields' in kwargs and kwargs['update_fields'] == ['views']
+./blog/models.py:            Article.objects.filter(pk=self.pk).update(views=self.views)
+./blog/models.py:class Article(BaseModel):
+./blog/models.py:        return Article.objects.filter(
+./blog/models.py:        return Article.objects.filter(id__lt=self.id, status='p').first()
+./blog/models.py:        return Article.objects.filter(tags__name=self.name).distinct().count()
+./blog/documents.py:from blog.models import Article, Category, Tag
+./blog/documents.py:class ArticleDocument(Document):
+./blog/documents.py:        doc_type = 'Article'
+./blog/documents.py:class ArticleDocumentManager():
+./blog/documents.py:        ArticleDocument.init()
+./blog/documents.py:            ArticleDocument(
+./blog/documents.py:        ArticleDocument.init()
+./blog/documents.py:        articles = articles if articles else Article.objects.all()
+./blog/migrations/0001_initial.py:            name='Article',
+匹配到二进制文件 ./blog/migrations/__pycache__/0001_initial.cpython-39.pyc
+./blog/tests.py:from blog.models import Article, Category, Tag, SideBar, Links
+./blog/tests.py:class ArticleTest(TestCase):
+./blog/tests.py:        article = Article()
+./blog/tests.py:            article = Article()
+./blog/tests.py:        p = Paginator(Article.objects.all(), 2)
+./blog/tests.py:        p = Paginator(Article.objects.filter(tags=tag), 2)
+./blog/tests.py:            Article.objects.filter(
+./blog/tests.py:        p = Paginator(Article.objects.filter(category=category), 2)
+匹配到二进制文件 ./blog/__pycache__/urls.cpython-39.pyc
+匹配到二进制文件 ./blog/__pycache__/search_indexes.cpython-39.pyc
+匹配到二进制文件 ./blog/__pycache__/documents.cpython-39.pyc
+匹配到二进制文件 ./blog/__pycache__/models.cpython-39.pyc
+匹配到二进制文件 ./blog/__pycache__/context_processors.cpython-39.pyc
+匹配到二进制文件 ./blog/__pycache__/views.cpython-39.pyc
+匹配到二进制文件 ./blog/__pycache__/admin.cpython-39.pyc
+./blog/search_indexes.py:from blog.models import Article, Category, Tag
+./blog/search_indexes.py:class ArticleIndex(indexes.SearchIndex, indexes.Indexable):
+./blog/search_indexes.py:        return Article
+./blog/management/commands/create_testdata.py:from blog.models import Article, Tag, Category
+./blog/management/commands/create_testdata.py:            article = Article.objects.get_or_create(
+./blog/management/commands/ping_baidu.py:from blog.models import Article, Tag, Category
+./blog/management/commands/ping_baidu.py:            for article in Article.objects.filter(status='p'):
+./blog/management/commands/build_index.py:from blog.documents import ElapsedTimeDocument, ArticleDocumentManager
+./blog/management/commands/build_index.py:from blog.models import Article
+./blog/management/commands/build_index.py:        manager = ArticleDocumentManager()
+./blog/management/commands/build_search_words.py:from blog.models import Article, Tag, Category
+./blog/context_processors.py:from .models import Category, Article, Tag, BlogSettings
+./blog/context_processors.py:            'nav_pages': Article.objects.filter(
+./mytest/admin.py:from .models import BlogArticles
+./mytest/admin.py:admin.site.register(BlogArticles)
+./mytest/models.py:class BlogArticles(models.Model):
+./mytest/migrations/0001_initial.py:            name='BlogArticles',
+匹配到二进制文件 ./mytest/migrations/__pycache__/0001_initial.cpython-39.pyc
+匹配到二进制文件 ./mytest/__pycache__/models.cpython-39.pyc
+./accounts/tests.py:from blog.models import Article, Category, Tag
+./accounts/tests.py:        article = Article()
+./accounts/tests.py:        article = Article()
+./DjangoBlog/utils.py:    from blog.models import Article
+./DjangoBlog/utils.py:    return (Article.objects.latest().pk, Comment.objects.latest().pk)
+./DjangoBlog/urls.py:from DjangoBlog.sitemap import StaticViewSitemap, ArticleSiteMap, CategorySiteMap, TagSiteMap, UserSiteMap
+./DjangoBlog/urls.py:    'blog': ArticleSiteMap,
+./DjangoBlog/elasticsearch_backend.py:from blog.models import Article
+./DjangoBlog/elasticsearch_backend.py:from blog.documents import ArticleDocument, ArticleDocumentManager
+./DjangoBlog/elasticsearch_backend.py:        self.manager = ArticleDocumentManager()
+./DjangoBlog/elasticsearch_backend.py:        models = iterable if iterable else Article.objects.all()
+./DjangoBlog/elasticsearch_backend.py:        models = models if models else Article.objects.all()
+./DjangoBlog/elasticsearch_backend.py:        search = ArticleDocument.search() \
+./DjangoBlog/elasticsearch_backend.py:            model_name = 'Article'
+./DjangoBlog/admin_site.py:from mytest.models import BlogArticles,Test
+./DjangoBlog/admin_site.py:admin_site.register(Article, ArticlelAdmin)
+./DjangoBlog/tests.py:from blog.models import Article, Category, Tag
+匹配到二进制文件 ./DjangoBlog/__pycache__/urls.cpython-39.pyc
+匹配到二进制文件 ./DjangoBlog/__pycache__/feeds.cpython-39.pyc
+匹配到二进制文件 ./DjangoBlog/__pycache__/sitemap.cpython-39.pyc
+匹配到二进制文件 ./DjangoBlog/__pycache__/utils.cpython-39.pyc
+匹配到二进制文件 ./DjangoBlog/__pycache__/admin_site.cpython-39.pyc
+匹配到二进制文件 ./DjangoBlog/__pycache__/blog_signals.cpython-39.pyc
+./DjangoBlog/feeds.py:from blog.models import Article
+./DjangoBlog/feeds.py:        return Article.objects.filter(type='a', status='p').order_by('-pub_time')[:5]
+./DjangoBlog/blog_signals.py:from blog.models import Article, Category, Tag, Links, SideBar, BlogSettings
+./DjangoBlog/sitemap.py:from blog.models import Article, Category, Tag
+./DjangoBlog/sitemap.py:class ArticleSiteMap(Sitemap):
+./DjangoBlog/sitemap.py:        return Article.objects.filter(status='p')
+./DjangoBlog/sitemap.py:        return list(set(map(lambda x: x.author, Article.objects.all())))
+./docs/README-en.md:- Articles, Pages, Categories, Tags(Add, Delete, Edit), edc. Articles and pages support `Markdown` and highlighting.
+./docs/README-en.md:- Articles support full-text search.
+./.git/COMMIT_EDITMSG:参考class Article(BaseModel): 进行修改
+./.git/logs/HEAD:7c31178de6f55f86338da3587905c03b7e4864ea 900653ce1fcc801d06e56dfa4134e70ef479120a zhang1998 <2764207312@qq.com> 1603523977 +0800	commit: 参考class Article(BaseModel): 进行修改
+./.git/logs/refs/heads/master:7c31178de6f55f86338da3587905c03b7e4864ea 900653ce1fcc801d06e56dfa4134e70ef479120a zhang1998 <2764207312@qq.com> 1603523977 +0800	commit: 参考class Article(BaseModel): 进行修改
 
-***** TODO 参考class Article(BaseModel): 进行修改
+
+#+END_SRC
+
+**** TODO 直接修改
 **** TODO 百度 修改 设定文件的方法
 **** TODO 学一学基本的知识然后进行修改
 **** TODO 将其修改为原本的版本
