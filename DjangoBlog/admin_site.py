@@ -79,4 +79,3 @@ admin_site.register(LogEntry, LogEntryAdmin)
 
 
 #自己的测试
-admin_site.register(Myarticle)

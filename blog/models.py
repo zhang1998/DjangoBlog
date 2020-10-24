@@ -363,20 +363,3 @@ class BlogSettings(models.Model):
         super().save(*args, **kwargs)
         from DjangoBlog.utils import cache
         cache.clear()
-
-
-class Myarticle(models.Model):
-    #title
-    title=models.CharField(max_length=300)
-    #content
-
-    #user
-    body=models.TextField()
-    #
-
-    #
-    class Meta:
-        ordering=("-title",)#规定了实例对象的显示顺序 即按照publish的字段进行显示
-
-    def __str__(self):
-        return self.title
