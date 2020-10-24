@@ -296,7 +296,11 @@ CLOSED: [2020-10-24 六 15:42]
 3. [X] 数据
 4. [X] 注册
 5. [X] 测试
-** TODO 自己修改 注册的 内容 进行修改
+** DONE 自己修改 注册的 内容 进行修改
+CLOSED: [2020-10-24 六 16:15]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-24 六 16:15]
+:END:
 *** DONE 把image  与 文字内容对应的部分创建好
 CLOSED: [2020-10-24 六 15:47]
 :LOGBOOK:
@@ -310,8 +314,16 @@ CLOSED: [2020-10-24 六 15:47]
 
 虽然效果 和我想的不一样 但是大概是成了  当然 以后其实能修改成别的
 *** TODO 新的效果 将其 创建在一个页面里面
-** TODO 图片和文字的复杂结合
-*** TODO 添加文字的部分
+** DONE 图片和文字的复杂结合
+CLOSED: [2020-10-24 六 16:21]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-24 六 16:21]
+:END:
+*** DONE 添加文字的部分
+CLOSED: [2020-10-24 六 16:21]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-24 六 16:21]
+:END:
 **** DONE 先看懂部分代码
 CLOSED: [2020-10-23 五 16:08]
 :LOGBOOK:
@@ -323,16 +335,31 @@ CLOSED: [2020-10-23 五 16:08]
 ./blog/migrations/0001_initial.py:                ('status', models.CharField(choices=[('d', '草稿')
 
 这货  就是直接写的model  然后调用的  我感觉
-***** TODO 主要是
-**** TODO 直接使用admin添加内容
+**** DONE 直接使用admin添加内容
+CLOSED: [2020-10-24 六 16:16]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-24 六 16:16]
+:END:
 1. [X] 定义model
 2. [X] 进行注册
 3. [X] 测试 失败 不知道为啥
 ***** TODO 先按照老齐的那个方案注册一下
-**** TODO 如何将每个 clo 和其他的分开 将每个组分开
-**** TODO 简单的准备内容
-1. [ ] 添加app部分
-2. [ ] 复制老齐的app部分
-**** TODO 进行修改的测试
-**** TODO 设计页面进行添加内容
-*** TODO 展示内容的部分
+* TODO 准备一个例子进行测试
+能够简单的实现各种功能了
+** TODO 创建一组资源
+** TODO 实现界面的显示部分
+* TODO 功能的实现
+** TODO 手机上的记录...
+** TODO 优化修改部分 添加一个比较合理的页面
+
+** TODO 图片的存储与管理
+1. 图片的存储与显示
+   #+BEGIN_SRC python
+    <img src="{% static '/images/Flufft-Cat.jpeg' %}">
+#用上上面这种形式的
+
+   #+END_SRC
+2. 文字内容
+3. 图片顺序
+4. 文字和图片的对应
+** TODO 适应手机ui的方法
