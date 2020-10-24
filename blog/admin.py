@@ -125,6 +125,3 @@ class SideBarAdmin(admin.ModelAdmin):
 
 class BlogSettingsAdmin(admin.ModelAdmin):
     pass
-
-
-class
