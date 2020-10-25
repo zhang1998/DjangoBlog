@@ -438,6 +438,10 @@ Out[13]: '这里是第1张图片  文字内容虽然都是省略的 但也是很
 
 
 **** TODO 循环显示内容部分测试
+面对多组需要显示的内容
+
+筛选对应的组 然后显示相应的文本内容
+
       2. [ ] 功能部分
          1. 测试代码
                         #+BEGIN_SRC python
@@ -449,6 +453,69 @@ Out[13]: '这里是第1张图片  文字内容虽然都是省略的 但也是很
 
          3. [ ] 循环显示图片 循环显示内容
 2. [ ] 对应的图片对应的内容
+
+
+
+***** USELESS 测试4  看看那个column的例子
+CLOSED: [2020-10-25 日 11:39]
+:LOGBOOK:
+- State "USELESS"    from "TODO"       [2020-10-25 日 11:39] \\
+  没有成型的代码
+:END:
+可能有成型 的代码 就不用自己去找了
+***** TODO 测试5
+直接用groups 进行筛选
+然后获得column 进行传递
+
+
+将内容存成 字典 然后 传递过去
+1. 按照 show的顺序 显示 匹配的内容
+2. [ ] 如何使用字典
+   #+BEGIN_SRC python
+columns = ArticleColumn.objecs.filter(user=request.user)
+return render(
+
+
+{% for column in columns %} #
+
+{{column.column}}#应该用来显示content
+
+
+
+   #+END_SRC
+3. 直接调用了
+4. [ ] 从shell上练习 功能
+5. [ ] copy功能的实现部分
+****** TODO 传递成功之后 使用新的 方法 重排顺序
+***** TODO 测试2
+将内容存成 字典 然后 传递过去
+1. 按照 show的顺序 显示 匹配的内容
+2. [ ] 如何使用字典
+   #+BEGIN_SRC python
+columns = ArticleColumn.objecs.filter(user=request.user)
+return render(
+
+
+{% for column in columns %} #
+
+{{column.column}}#应该用来显示content
+
+
+
+   #+END_SRC
+3. 直接调用了
+4. [ ] 从shell上练习 功能
+5. [ ] copy功能的实现部分
+
+***** TODO 测试3
+直接显示 只不过每次过滤的内容不一样
+
+不断循环内容
+然后过滤
+1. imageid 传递id
+2. 文字内容
+***** TODO 测试1
+直接  将 循环的代码部分 扔到 html里面
 * TODO 功能的实现
 ** TODO 手机上的记录...
 ** TODO 优化修改部分 添加一个比较合理的页面
@@ -464,3 +531,4 @@ Out[13]: '这里是第1张图片  文字内容虽然都是省略的 但也是很
 3. 图片顺序
 4. 文字和图片的对应
 ** TODO 适应手机ui的方法
+* TODO 读完  老齐的备注部分...
