@@ -2,7 +2,11 @@
 admin:admin
 test:qazxcvbn
 test2:qazxcvbn
-* TODO 尝试和实验
+* DONE 尝试和实验
+CLOSED: [2020-10-25 日 09:46]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-25 日 09:46]
+:END:
 ** DONE 实验这个网站
 CLOSED: [2020-10-23 五 15:46]
 :LOGBOOK:
@@ -346,8 +350,52 @@ CLOSED: [2020-10-24 六 16:16]
 ***** TODO 先按照老齐的那个方案注册一下
 * TODO 准备一个例子进行测试
 能够简单的实现各种功能了
-** TODO 创建一组资源
+** DONE 先显示一张图片
+CLOSED: [2020-10-25 日 09:49]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-25 日 09:49]
+:END:
+1. 在newGroup下
+2. [X] iamge
+3. [X] html
+4. [X] url
+5. [X] 测试  能链接到界面吗
+6. [X] 写入image的链接
+   1. 能用的链接:              <img src="{% static 'assets/img/mem.jpeg' %}" class="img-circle" id="my_photo" name="user_face">
+
+#+BEGIN_SRC html
+http://localhost:8000/newGroup/%7B%%20static%20'images/assets/img/mem.jpeg%7D
+
+http://localhost:8000/newGroup/%7B%%20static%20'images/assets/img/mem.jpeg%7D
+
+
+http://localhost:8000/static/images/assets/img/mem.jpeg
+
+http://localhost:8000/static/images/assets/img/mem.jpeg
+
+#+END_SRC
+*** TODO 从搜索img开始
+1. [ ] 从cloleccted部分
+   1. [ ] 复制img
+   2. [ ] img位置
+
+** DONE 创建一组资源
+CLOSED: [2020-10-25 日 09:56]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-25 日 09:56]
+:END:
+1. 6
+2. [X] image
+3. [X] content
 ** TODO 实现界面的显示部分
+比较接近实际功能的部分
+*** TODO 实现框架部分的功能
+1. 集成这个基本的显示框架
+2. 然后就是基本的显示排列了
+3. 直接修改test.html
+
+*** TODO 实现图片的连续显示
+*** TODO 图片+文字的连续显示
 * TODO 功能的实现
 ** TODO 手机上的记录...
 ** TODO 优化修改部分 添加一个比较合理的页面
