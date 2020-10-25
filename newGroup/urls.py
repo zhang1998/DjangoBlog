@@ -17,13 +17,14 @@ from django.contrib import admin
 from django.urls import path,include,re_path
 from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
+from . import views
 
 
 
 #from django.conf.urls import url,include
 urlpatterns = [
 
-    re_path(r'',TemplateView.as_view(template_name="newGroup/test.html"),name='test'),
+    re_path(r'',views.text_content,name='test'),
 
 
 ]

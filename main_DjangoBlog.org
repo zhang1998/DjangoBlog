@@ -415,6 +415,40 @@ CLOSED: [2020-10-25 日 10:43]
 2. [X] 提交commit
 
 *** TODO 使用函数版本
+1. [-] 能调用储存的内容
+   1. 肯定是用view  将图片传过来
+   2. [X] 测试
+      1. [X] 调用的方法 shell
+         #+BEGIN_SRC python
+n [9]: id1=Group.objects.get(imageId=1)
+
+In [13]: id1.textContent
+Out[13]: '这里是第1张图片  文字内容虽然都是省略的 但也是很有意思'
+
+
+         #+END_SRC
+   3. [-] 实践
+      1. [X] 显示
+         1. 能够调用显示页面了
+         2. [X] html
+
+         3. [X] view
+
+         4. [X] url
+
+
+**** TODO 循环显示内容部分测试
+      2. [ ] 功能部分
+         1. 测试代码
+                        #+BEGIN_SRC python
+   text=Group.objects.all()
+   t1=text.get(imageId=1)
+               t1.imageId
+               #+END_SRC
+         2. [ ] 对一张 图片能显示对应的内容
+
+         3. [ ] 循环显示图片 循环显示内容
+2. [ ] 对应的图片对应的内容
 * TODO 功能的实现
 ** TODO 手机上的记录...
 ** TODO 优化修改部分 添加一个比较合理的页面
