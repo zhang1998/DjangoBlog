@@ -22,6 +22,7 @@ from django.views.generic.base import TemplateView
 
 #from django.conf.urls import url,include
 urlpatterns = [
+    re_path(r'',TemplateView.as_view(template_name="mytest/home.html"),name='test'),   # 显示最基础的模板
 
 
 ]
