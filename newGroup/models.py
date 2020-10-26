@@ -15,6 +15,8 @@ class Group(models.Model):
 
     #图片的唯一标志
     imageId=models.IntegerField("图片的id")
+    #图片的位置
+    imageLoca=models.CharField(max_length=300) #建立的时候直接使用其groups 组 绑定文件夹
     # 图片的显示顺序
     showOrder=models.IntegerField("显示顺序id")
     textContent=models.CharField(max_length=300)

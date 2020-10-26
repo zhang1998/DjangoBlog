@@ -36,20 +36,17 @@
                 <p class="archive-title">文章归档</p>
             </header><!-- .archive-header -->
             <div>
+
+              {% for column in columns %}
+
               <div style="position:relative;">
-                <img src="{% static 'assets/img/1.jpg' %}" class="img-circle" id="my_photo" name="user_face">
-                　<div style="position:absolute; z-index:2; left:60%; top:10px ;writing-mode : tb-rl ;">添加文字...添加文字...添加文字...时还是事实 灯灭 的等 故事 在哪里</div>
-              </div>
-              <div style="position:relative;">
-                <img src="{% static 'assets/img/2.jpg' %}" class="img-circle" id="my_photo" name="user_face">
-                　<div style="position:absolute; z-index:2; left:60%; top:10px ;writing-mode : tb-rl ;">地个遍添加文字...添加文字...添加文字...时还是事实 灯灭 的等 故事 在哪里</div>
-              </div>
+                <img  id="image" src="{{column.imageLoca}}" class="img-circle" id="my_photo" name="user_face">
+
+                　<div style="position:absolute; z-index:2; left:60%; top:10px ;writing-mode : tb-rl ;"> {{column.textContent}}</div>
 
 
-              <img src="{% static 'assets/img/3.jpg' %}" class="img-circle" id="my_photo" name="user_face">
-              <img src="{% static 'assets/img/4.jpg' %}" class="img-circle" id="my_photo" name="user_face">
-              <img src="{% static 'assets/img/5.jpg' %}" class="img-circle" id="my_photo" name="user_face">
-              <img src="{% static 'assets/img/6.jpg' %}" class="img-circle" id="my_photo" name="user_face">
+              </div>
+              {% endfor %}
             </div>
         </div><!-- #content -->
     </div><!-- #primary -->
