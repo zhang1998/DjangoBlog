@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'compressor',
     'newGroup',
     'mytest',
+    'search',
 ]
 
 MIDDLEWARE = [
