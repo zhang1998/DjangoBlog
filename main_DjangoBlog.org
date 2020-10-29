@@ -805,17 +805,22 @@ CLOSED: [2020-10-28 三 14:30]
 *** TODO 创建新组
 
 **** TODO 获得想要使用的图片组:使用搜索 获取图片组
+
 ***** TODO 如何实现搜索功能
-1. [ ] 去 django上搜一搜
-2. [ ] 方案
-   1. [ ] 官方插件 还用自己写什么东西吗  估计是不用  更加省事
+1. [X] 去 django上搜一搜
+2. [-] 方案
+   1. [-] 官方插件 还用自己写什么东西吗  估计是不用  更加省事
       1. 先用  pip install django-search 这个吧
-      2. [ ] 改其 代码 用filter进行过滤 毕竟只是搜索名字 还是这个省事
+      2. [X] 改其 代码 用filter进行过滤 毕竟只是搜索名字 还是这个省事
          #+BEGIN_SRC python
         {% load search_tags %}
         {% search queryset field1 field2 ... %}
 
          #+END_SRC
+      3. [X] 看看其定义
+      4. [X] [[学习单元测试]]:python
+      5. [ ] 修改部分内容 看看效果
+      6. [ ] [[学习单元测试]]:django
    2. [ ] 官方插件 还用自己写什么东西吗  估计是不用  更加省事
    3. [ ] 自己写filter
       1. [ ] 能不能过滤不全的内容啊
@@ -932,3 +937,10 @@ Out[9]: <QuerySet [<ImageSt: ImageSt object (1)>]>
 *** TODO ui的修改
 *** TODO 大批量图片的存储
 * TODO 读完  老齐的备注部分...
+* 学习单元测试
+** DONE python 单元测试
+CLOSED: [2020-10-29 四 09:19]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-29 四 09:19]
+:END:
+** TODO django 单元测试
