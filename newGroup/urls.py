@@ -24,6 +24,9 @@ from . import views
 #from django.conf.urls import url,include
 urlpatterns = [
     re_path(r'^search/$',views.search,name='search'),
+    re_path(r'',TemplateView.as_view(template_name="newGroup/tableTest.html"),name='test_table'),
+    re_path(r'',views.newGroup,name='newGroup'),
+    re_path(r'',TemplateView.as_view(template_name="newGroup/newGroup_test.html"),name='test_newGroup'),
     re_path(r'',views.text_content,name='test'),
 
 

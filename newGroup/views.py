@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Group,Groups,ImageSt
+from .forms import *
 # Create your views here.
 def text_content(request):
     #text=Group.objects.all()
@@ -35,3 +36,6 @@ def search(request):
     post_list = ImageSt.objects.filter(title__contains=q)
     return render(request, 'newGroup/results.html', {'error_msg': error_msg,
                                                'post_list': post_list})
+def newGroup(request):
+    create_form=NewGroupForm(request.POST)#4
+    return render(request,'newGroup/newGroup_test.html',{"form":create_form})
