@@ -4,7 +4,7 @@
 {% load cache %}
 {% block header %}
 
-    <title>test_html | {{ SITE_DESCRIPTION }}</title>
+    <title>error | {{ SITE_DESCRIPTION }}</title>
 
     <meta name="description" content="{{ SITE_SEO_DESCRIPTION }}"/>
     <meta name="keywords" content="{{ SITE_KEYWORDS }}"/>
@@ -32,7 +32,7 @@
       <div>
         <form method="get" action="/search/">
           {% csrf_token %}
-          <input name="search_content" type="search" placeholder="搜索" required>
+          <input type="search" placeholder="搜索" required>
           <button type="submit">搜索</button>
         </form>
         </div>
@@ -43,18 +43,8 @@
                 <p class="archive-title">文章归档</p>
             </header><!-- .archive-header -->
             <div>
-
-              {% for column in columns %}
-
-              <div style="position:relative;">
-                <img  id="image" src="{{column.imageLoca}}" class="img-circle" id="my_photo" name="user_face">
-
-                　<div style="position:absolute; z-index:2; left:60%; top:10px ;writing-mode : tb-rl ;"> {{column.textContent}}</div>
-
-
-              </div>
-              {% endfor %}
-            </div>
+              <h1> {{error_msg}}</h1>
+             </div>
         </div><!-- #content -->
     </div><!-- #primary -->
 

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Group,Groups
+from .models import Group,Groups,ImageSt
 # Create your views here.
 def text_content(request):
     #text=Group.objects.all()
@@ -23,3 +23,15 @@ def text_content(request):
     qu1=Group.objects.filter(groups=qu1)
 
     return render(request,"newGroup/test.html",{"columns":columns})
+#实现image的搜索 主要是搜索名字
+def search(request):
+    q = request.GET.get('search_content')
+    error_msg = ''
+
+    if not q:
+        error_msg = '请输入关键词'
+        return render(request, 'newGroup/errors.html', {'error_msg': error_msg})
+    #测试的内容 是 test2
+    post_list = ImageSt.objects.filter(title__contains=q)
+    return render(request, 'newGroup/results.html', {'error_msg': error_msg,
+                                               'post_list': post_list})

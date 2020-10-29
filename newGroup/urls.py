@@ -23,7 +23,7 @@ from . import views
 
 #from django.conf.urls import url,include
 urlpatterns = [
-
+    re_path(r'^search/$',views.search,name='search'),
     re_path(r'',views.text_content,name='test'),
 
 
