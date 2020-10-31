@@ -13,7 +13,7 @@
     <meta property="og:description" content="{{ SITE_DESCRIPTION }}"/>
     <meta property="og:url" content="{{ SITE_BASE_URL }}"/>
     <meta property="og:site_name" content="{{ SITE_NAME }}"/>
-
+    <script src="{% static '/newGroup/js/test.js' %}" type="text/javascript"></script>
     {% endblock %}
     {% block content %}
     <style>
@@ -26,36 +26,91 @@
           z-index:2;
           left:40%; top:10px
       }
+      td{
+          border-bottom-width: 1px;
+          tom-style: solid;
+          border-bottom-color: #CCCCCC;
+      }
+      .EditCell_TextBox {
+          width: 90%;
+          border:1px solid #0099CC;
+      }
+      .EditCell_DropDownList {
+          width: 90%;
+      }
+      body{
+          text-shadow:#FFFFFF 1px 1px 1px;
+      }
+      .editableTable{
+          width: 220px;
+          padding: 10px;
+          background-color: #DDEEF6;
+          border:1px solid #DDEEF6;
 
+          -webkit-border-radius: 6px;
+          -moz-border-radius: 6px;
+      }
+      .editableTable thead{
+          background:#FFFFCC;
+      }
+      td{
+          background:#66CCFF;
+          cursor:pointer;
+      }
+      .selectCell{
+          background:#6699FF;
+      }
     </style>
-    <div id="primary" class="site-content">
+
+    <div >
       <div>
-        <form method="get" action="/search/">
-          {% csrf_token %}
-          <input name="search_content" type="search" placeholder="搜索" required>
-          <button type="submit">搜索</button>
-        </form>
+<a href="#" id="username" data-type="text" data-pk="1">awesome</a>
+<script>
+$(function(){
+    $('#username').editable({
+        url: '/post',
+        title: 'Enter username'
+    });
+});
+</script>
         </div>
-        <div id="content" role="main">
+      <div >
+        <h1>现在输入的内容</h1>
+        <link href="bootstrap-editable/css/bootstrap-editable.css" rel="stylesheet">
+        <script src="bootstrap-editable/js/bootstrap-editable.js"></script>
 
-            <header class="archive-header">
+      </div>
 
-                <p class="archive-title">文章归档</p>
-            </header><!-- .archive-header -->
-            <div>
+      <table class="editableTable">
+        <h1>之前输入的内容</h1>
+    <thead>
+        <tr>
+            <th>Item1</th>
+            <th>Item2</th>
+            <th>Item3</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="editable simpleInput">arthinking</td>
+            <td class="editable simpleInput">Jason</td>
+            <td class="editable simpleInput">itzhai</td>
+        </tr>
+        <tr>
+            <td class="editable simpleInput">arthinking</td>
+            <td class="editable simpleInput">Jason</td>
+            <td class="editable simpleInput">itzhai</td>
+        </tr>
+        <tr>
+            <td class="editable simpleInput">arthinking</td>
+            <td class="editable simpleInput">Jason</td>
+            <td class="editable simpleInput">itzhai</td>
+        </tr>
+    </tbody>
+</table>
+</div>
 
-              {% for column in columns %}
 
-              <div style="position:relative;">
-                <img  id="image" src="{{column.imageLoca}}" class="img-circle" id="my_photo" name="user_face">
-
-                　<div style="position:absolute; z-index:2; left:60%; top:10px ;writing-mode : tb-rl ;"> {{column.textContent}}</div>
-
-
-              </div>
-              {% endfor %}
-            </div>
-        </div><!-- #content -->
-    </div><!-- #primary -->
+</body>
 
 {% endblock %}

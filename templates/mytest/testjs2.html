@@ -1,0 +1,69 @@
+ 
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title>菜鸟教程(runoob.com)</title>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script> 
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<table border="1">
+  <tr>
+    <th>Month</th>
+    <th>Savings</th>
+  </tr>
+  <tr>
+    <td>January</td>
+    <td>$100</td>
+  </tr>
+  <tr>
+    <td>February</td>
+    <td>$80</td>
+  </tr>
+</table>
+<div>
+  <a href="#" id="username" data-type="text" data-pk="1">awesome</a>
+<script>
+$(function(){
+    $('#username').editable({
+        url: '/post',
+        title: 'Enter username'
+    });
+});
+</script>
+  </div>
+<script>
+
+
+  
+  $(document).ready(function() {
+    //toggle `popup` / `inline` mode
+    $.fn.editable.defaults.mode = 'popup';     
+    
+    //make username editable
+    $('#username').editable();
+    
+    //make status editable
+    $('#status').editable({
+        type: 'select',
+        title: 'Select status',
+        placement: 'right',
+        value: 2,
+        source: [
+            {value: 1, text: 'status 1'},
+            {value: 2, text: 'status 2'},
+            {value: 3, text: 'status 3'}
+        ]
+        /*
+        //uncomment these lines to send data on server
+        ,pk: 1
+        ,url: '/post'
+        */
+    });
+});
+  </script>
+</body>
+</html>
