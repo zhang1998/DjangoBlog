@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+
 from .models import Group,Groups,ImageSt
 from .forms import *
 # Create your views here.
@@ -28,7 +30,6 @@ def text_content(request):
 def search(request):
     q = request.GET.get('search_content')
     error_msg = ''
-
     if not q:
         error_msg = '请输入关键词'
         return render(request, 'newGroup/errors.html', {'error_msg': error_msg})
@@ -37,5 +38,14 @@ def search(request):
     return render(request, 'newGroup/results.html', {'error_msg': error_msg,
                                                'post_list': post_list})
 def newGroup(request):
-    create_form=NewGroupForm(request.POST)#4
-    return render(request,'newGroup/newGroup_test.html',{"form":create_form})
+    if request.method=="GET":
+        create_form=NewGroupForm(request.POST)#4
+        return render(request,'newGroup/newGroup1.html',{"form":create_form})
+    if request.method=="POST":
+        create_form=NewGroupForm(request.POST)#4
+        if create_form.is_valid():
+            reData=create_form.cleaned_data
+            groups =Groups(title=reData['title'])
+            groups.save()
+        print(create_form)
+        return HttpResponse("ye")

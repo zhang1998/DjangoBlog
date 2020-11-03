@@ -9,5 +9,5 @@ class ArticlePostForm(forms.ModelForm):
         fields=("imageId","showOrder")
 class NewGroupForm(forms.Form):
 
-    title=forms.CharField(max_length=300)
-    originImageGroups=forms.IntegerField()
+    title=forms.CharField(max_length=300,label='title')
+    originImageGroups=forms.IntegerField(label='使用的组序号')

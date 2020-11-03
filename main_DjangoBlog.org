@@ -765,337 +765,104 @@ CLOSED: [2020-10-27 二 20:47]
 :上传
 :搜索
 :登录
-** TODO 优化修改部分 添加一个比较合理的页面
-在 newGroup  app下
-*** DONE 准备内容
-CLOSED: [2020-10-27 二 20:52]
+** TODO v1 newGroup的功能
+安排两个页面
+| 页面 | 左侧         | 右侧           |
+|------+--------------+----------------|
+|    1 | 创建的部分   | 搜索得到的内容 |
+|    2 | 添加行的部分 | image部分        |
+*** DONE 界面1:创建的部分
+CLOSED: [2020-11-01 日 10:14]
 :LOGBOOK:
-- State "DONE"       from "TODO"       [2020-10-27 二 20:52]
+- State "DONE"       from "TODO"       [2020-11-01 日 10:14]
 :END:
-1. [X] url的跳转
+是几行简单的内容 填好就行
+1. [X] create按键
 
-
-
-*** DONE 上传图片
-CLOSED: [2020-10-28 三 14:30]
+**** DONE html
+CLOSED: [2020-10-31 六 23:44]
 :LOGBOOK:
-- State "DONE"       from "TODO"       [2020-10-28 三 14:30]
+- State "DONE"       from "TODO"       [2020-10-31 六 23:44]
 :END:
+1. [X] 创建html newGroup1
+2. [X] 并且能够进行展示
+3. [X] 修改创建部分 展示内容
+   1. [X] title
+   2. [X] 按键 create
+4. [X] chrom进行测试
 
-**** DONE 上传的图片img
-CLOSED: [2020-10-27 二 21:37]
+**** DONE view
+CLOSED: [2020-11-01 日 10:10]
 :LOGBOOK:
-- State "DONE"       from "TODO"       [2020-10-27 二 21:37]
+- State "DONE"       from "TODO"       [2020-11-01 日 10:10]
 :END:
-文件夹复制 图片组
-1. [X] 准备六个
-
-**** DONE 将相关信息存储到 数据库
-CLOSED: [2020-10-28 三 14:30]
+1. [X] 看一看老齐的解决方案
+   1. [X] 了解整个过程
+      1. 提交 到数据库的功能
+      2. [X] 方法一: 直接创建
+         1. [X] 写入数据库
+      3. [] 方法二
+         1. [ ] name="q" html
+         2. [ ] 将q的数据写入内容 view
+3. [ ] 表格能否提交到数据库呢:这里只是 提交到新的groups就行了
+**** DONE 功能测试
+CLOSED: [2020-11-01 日 10:11]
 :LOGBOOK:
-- State "DONE"       from "TODO"       [2020-10-28 三 14:30]
+- State "DONE"       from "TODO"       [2020-11-01 日 10:11]
 :END:
-创建model  admin存入
-1. [X] model
-2. [X] 注册
-3. [X] 修改
-
-
-
-
-*** TODO 获得想要使用的图片组:使用搜索 获取图片组
-
-**** DONE 如何实现搜索功能
-CLOSED: [2020-10-29 四 10:27]
-:LOGBOOK:
-- State "DONE"       from "TODO"       [2020-10-29 四 10:27]
-:END:
-1. [X] 去 django上搜一搜
-2. [X] 方案
-   1. [X] 官方插件 还用自己写什么东西吗  估计是不用  更加省事
-      1. 先用  pip install django-search 这个吧
-      2. [X] 改其 代码 用filter进行过滤 毕竟只是搜索名字 还是这个省事
-         #+BEGIN_SRC python
-        {% load search_tags %}
-        {% search queryset field1 field2 ... %}
-
-         #+END_SRC
-      3. [X] 看看其定义
-      4. [X] [[学习单元测试]]:python
-      5. [X] 修改部分内容 看看效果 :能够 搜索文章 但是搜索不到图片....不知道为啥 看来只能自己写了
-   2. [X] 自己写filter
-      1. [X] 能不能过滤不全的内容啊
-         #+BEGIN_SRC python
-In [9]: ImageSt.objects.filter(title__contains='测试')
-Out[9]: <QuerySet [<ImageSt: ImageSt object (1)>]>
-
-
-         #+END_SRC
-
-      2. [X] form 提交搜索内容
-
-      3. [X] 函数内容 view 提交表单
-
-      4. [X] views的内容
-
-      5. [X] 修改返回结果的部分的设计 选择设计一 更好看方便
-
-         1. 设计二:不断跳转到新的页面 但是灵活性就差一些
-
-         2. 设计一:返回的是一个页面 包含了 一组符合要求的图(包含title关键字的图 同时展示基本的信息  点击跳转进去 就是创建新组的页面) 展示了基本的信息  然后 是拖动图的内容 到 修改部分 即能够 进行 创建新新组的信息
-
-      6. [X] 实现搜索结果的返回
-
-         1. [X] 返回组图的信息
-
-
-
-
-***** TODO 后续可选的方案
-   3. [ ] 官方插件 还用自己写什么东西吗  估计是不用  更加省事
-   4. [ ] 官方插件 还用自己写什么东西吗  估计是不用  更加省事
-   5. [ ] 官方插件 还用自己写什么东西吗  估计是不用  更加省事
-   6. [ ] 官方插件 还用自己写什么东西吗  估计是不用  更加省事
-   7. [ ] 百度
-
-**** TODO 搜索功能和创建功能的信息传递与结合
-
-***** TODO 写html
-
-****** DONE 两块
-CLOSED: [2020-10-29 四 11:02]
-:LOGBOOK:
-- State "DONE"       from "TODO"       [2020-10-29 四 11:02]
-:END:
-1. [X] 寻找两块的方法
-   #+BEGIN_SRC html
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>菜鸟教程(runoob.com)</title>
-</head>
-<body>
-
-<div id="container" style="width:500px">
-
-<div id="header" style="background-color:#FFA500;">
-<h1 style="margin-bottom:0;">主要的网页标题</h1></div>
-
-<div id="menu" style="background-color:#FFD700;height:200px;width:70%;float:left;">
-<b>负责修改的那部分内容</b><br>
-
-        t</div>
-
-<div id="content" style="background-color:#EEEEEE;height:200px;width:30%;float:left;">
-负责搜索的那部分内容</div>
-
-<div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
-版权 © runoob.com</div>
-
-</div>
-
-</body>
-</html>
-
-   #+END_SRC
-2. [X] 菜鸟上进行测试
-3. [X] 进行html创建
-****** DONE 进行创建的部分 html
-CLOSED: [2020-10-29 四 14:25]
-:LOGBOOK:
-- State "DONE"       from "TODO"       [2020-10-29 四 14:25]
-:END:
-1. [X] html部分
-   1. [X] 使用model
-      1. [X] title  自己创建的组的名字
-      2. [X] 使用的原图 groups编号
-      3. [X] 创建时间
-   2. [X] forms
-   3. [X] 在html中使用
-   4. [X] view 中创建可以访问的视图
-   5. [X] 测试效果
-****** TODO 添加条目的内容 html  如何处理
-1. [ ] 新建
-2. [ ] 删除
-3. [ ] 点击修改
-
-******* DONE 先看看其他资料
-CLOSED: [2020-10-30 五 15:53]
-:LOGBOOK:
-- State "DONE"       from "TODO"       [2020-10-30 五 15:53]
-:END:
-1. 先试一试
-2. [-] 用新的文件进行表格的测试
-   1. [X] 新的html文件
-   2. [X] 对统一的script文件的测试
-      1. 用菜鸟教程 上的 内容进行测试
-      2. [X] 写一个内容与功能
-      3. [X] 如何引入文件
-         1. [N] 当前文件夹 + ./
-         2. [N] 当前文件夹  直接引入
-         3. [X] 找到放js的地方
-            #+BEGIN_SRC html
-src="/static/CACHE/js/output.83ba32b80846.js">
-
-可行:  在header里面加入:
-    <script src="/static/newGroup/js/test.js" type="text/javascript"></script>
-
-static 也能用 还是在 static文件夹下的路径
-    <script src="{% static '/newGroup/js/test.js' %}" type="text/javascript"></script>
-
-            #+END_SRC
-   3. [X] [[js%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0][学一学js吧]]  不然都不知道如何调试 烦死了
-******* TODO 继续研究表格:插件
-:LOGBOOK:
-CLOCK: [2020-10-31 六 15:40]--[2020-10-31 六 15:51] =>  0:11
-CLOCK: [2020-10-31 六 09:54]--[2020-10-31 六 10:00] =>  0:06
-:END:
-http://vitalets.github.io/x-editable/docs.html
-
-   1. 指标
-      1. 丰富的编辑功能
-         1. 一般要求
-            1. 点击编辑
-            2. 删除
-            3. 修改
-            4. 添加
-         2. 进阶要求
-            1. 对顺序的优化
-               1. 一种可能是 拖动
-               2. 一种可能是 重新定义排序
-               3. 一种可能是 能够操作都是针对每行的
-      2.
-   2. [ ] 插件
-   3. [ ] 试一试别人写的代码
-      1. [ ] js
-
-      2. [ ] html
-******** TODO X-editable
-:LOGBOOK:
-CLOCK: [2020-10-31 六 15:51]
-:END:
-1. [X] 按照教程来
-   1. [X] 添加html 表格
-   2. [X] 按照教程进行修改 添加
-   3. [X] 测试第一个可以修改的内容
-2. [ ] 测试功能 调试功能
-3. [ ] 修改参数
-   1. [ ] url
-   2. [ ] scr的链接
-******* TODO 继续研究表格:别人的代码
-看上去 有图形了 但是 功能不能使用 不知道为啥 哈哈
-******** TODO 按键部分的功能:删除
-:LOGBOOK:
-CLOCK: [2020-10-31 六 09:43]--[2020-10-31 六 09:54] =>  0:11
-:END:
-1. [X] 实验删除语句的效果 :tabProduct
-   1. [X] 删除i=1 是有效的  删除了 有效内容的第一行
-      #+BEGIN_SRC javascript
-  tabProduct.deleteRow(1);
+1. [X] 测试整体的效果
+   1. [X] 添加完整的url
+      #+BEGIN_SRC python
+http://localhost:8000/newGroup/newGroup/
 
       #+END_SRC
-2. [C] 实验删除语句的效果 :传递参数 没问题
-   1. [ ] 删除i=1
-   2. [ ] 删除i=2
-   3. [ ] 删除i=3
-3. [-] 修改功能代码部分
-   1. [-] 逆向思考
-      1. [-] 在菜鸟上自己测试程序 完成内容
-
-         1. [-] 点击按键 检测checkbox
-            1. [-] 先试试获得checkbox的方法
-
-               1. [X] 抄袭  表格的代码
-
-               2. [X] 抄袭 内容的代码
-
-               3. [ ] 测试
-         2. [ ] 点击按键 删除特定行
-            #+BEGIN_SRC javascript
-      //可以参考的代码
-      <input type="checkbox" id="test" class="test">同意
-      <script>
-          // 获取checkbox元素
-          var box=document.getElementById("test");
-          // 判断是否被拒选中，选中返回true，未选中返回false
-          alert(box.checked);
-      </script>
-
-
-      //他用的代码
-      <td align="center" bgcolor="#FFFFFF"><input type="checkbox" name="checkbox2" value="checkbox" /></td>
-
-
-            #+END_SRC
-   2. [ ] 顺向思考
-
-      1. [ ] 如何判断 checkbox被选中了
-
-      2. [ ] table里的checkbox
-4. [ ] 测试
-******** USEFULL 按键部分的功能:新增
-CLOSED: [2020-10-30 五 17:05]
+*** TODO 界面1:搜索的部分
+1. [ ] 点击进行搜索后
+2. [ ] 返回一个简单的框
+3. [ ] 介绍内容
+**** TODO ajax 刷新内容
+***** USELESS 老齐
+CLOSED: [2020-11-03 二 18:42]
 :LOGBOOK:
-- State "USEFULL"    from "TODO"       [2020-10-30 五 17:05] \\
-  能够使用
+- State "USELESS"    from "TODO"       [2020-11-03 二 18:42] \\
+  没什么用
 :END:
-1. [X] 能调用功能吗?
-2. [ ] 先把调用整明白
-   1. [ ] test.js
-   2. 文件位置 不对 但是我又找不到问题 就很离谱
-   3. [ ] 当前文件夹下的js
-3. [ ] 功能函数写的有问题吗
-#+BEGIN_SRC html
-不是这个./newGroup/static/newGroup/js/test.js:function mdisplayDate(){
-./templates/newGroup/tableTest2.html:<input type="button" name="Submit2" value="测试" onclick="displayDate()" />
-./templates/mytest/testjs.html:function displayDate(){
-./templates/mytest/testjs.html:<button type="button" onclick="displayDate()">显示日期</button>
-
-
-#+END_SRC
-******** USEFULL 按键部分的功能:重置
-CLOSED: [2020-10-30 五 17:05]
-:LOGBOOK:
-- State "USEFULL"    from "TODO"       [2020-10-30 五 17:05] \\
-  能够使用 直接 重置为 最初始的状态
-:END:
-******** TODO 点击就能修改的功能
-
-******** TODO 按键部分的功能:提交
-******* TODO 老齐的解决方案
-但是不使用弹窗修改 而是使用js  像表格一样修改
-1. [ ] django 有插件吗
-2. [ ] 有这种api吗
-****** TODO 显示信息的部分
-
-****** TODO 拖动的功能
-
-****** TODO 提交部分的实现
-***** TODO 功能部分的实现 逐步调试 和实现
-
-****** TODO 搜索部分
-
-****** TODO 创建部分
-
-****** TODO 拖动功能
-
-*** TODO 创建的功能
-**** TODO UI的实现
-**** TODO 修改大部分的功能与内容
-*** TODO 为新组添加内容
-
-
-*** TODO 设计过程
-1. 在 newGroup文件下进行修改
-2. [X] model
-3. [ ] 复习他的form是怎么写的
-4. [ ] form
-5. [ ] view
-6. [ ] html
-
+***** TODO 菜鸟教程
+****** TODO 先试一试 在 html中刷新某一个部分的内容
+1. [ ] 刷新div中的某个部分的内容
+   1. [ ] 按键功能
+   2. [ ] ajax的写入
+   3. [ ] 测试
+***** TODO 百度
+**** TODO html
+**** TODO view
+**** TODO 功能测试
+*** TODO 界面2:添加行的界面
+2. [ ] 创建 行
+*** TODO 界面2:展示image的界面
+*** TODO 两个界面 间如何传递数据
+1. [ ] 是怎么切换页面的呢
 ** TODO 去github上找一些功能比较齐全的django网站资源
 还是直接修改 更加省事 自己写实在是太慢了
+** TODO 继续 学习 django
+这次是按照 django.org 上的记录 来进行加强学习
+这段时间做项目 发现一个问题 就是内容太吃力了
+浪费大量的时间
+还不如 继续学习 强化技能
+直接按照 教程的内容 来组织项目的进度
+
+*** TODO 功能测试
+1. [ ] html的更换
+   1. [ ] 测试html的更换效果
+   2. [ ] div 的嵌套
+   3. [ ] 单独文件的调试
+
+
+*** TODO 项目各个功能的组织 设计
+1. [ ] 批量url的书写
+2. [ ] 批量html的书写
+   1. [ ] 注意嵌套的设计
+*** TODO 学习一个过程 就完成相近的功能
 ** TODO 图片的存储与管理
 1. 图片的存储与显示
    #+BEGIN_SRC python
@@ -1170,7 +937,384 @@ CLOSED: [2020-10-30 五 17:05]
 ** TODO 哪怕是group 上的model 也要好好思考了 这里面好像还有问题...
 ** TODO xmind上的其他功能
 ** TODO 用户的管理
+** TODO v2优化修改部分 添加一个比较合理的页面
+在 newGroup  app下
+
+*** DONE 设计过程
+CLOSED: [2020-10-31 六 23:23]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-31 六 23:23]
+:END:
+1. 在 newGroup文件下进行修改
+2. [X] model
+3. [ ] 复习他的form是怎么写的
+4. [ ] form
+5. [ ] view
+6. [ ] html
+*** DONE 准备内容
+CLOSED: [2020-10-27 二 20:52]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-27 二 20:52]
+:END:
+1. [X] url的跳转
+
+
+
+*** DONE 上传图片
+CLOSED: [2020-10-28 三 14:30]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-28 三 14:30]
+:END:
+
+**** DONE 上传的图片img
+CLOSED: [2020-10-27 二 21:37]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-27 二 21:37]
+:END:
+文件夹复制 图片组
+1. [X] 准备六个
+
+**** DONE 将相关信息存储到 数据库
+CLOSED: [2020-10-28 三 14:30]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-28 三 14:30]
+:END:
+创建model  admin存入
+1. [X] model
+2. [X] 注册
+3. [X] 修改
+
+*** TODO 获得想要使用的图片组:使用搜索 获取图片组
+
+**** DONE 如何实现搜索功能
+CLOSED: [2020-10-29 四 10:27]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-29 四 10:27]
+:END:
+1. [X] 去 django上搜一搜
+2. [X] 方案
+   1. [X] 官方插件 还用自己写什么东西吗  估计是不用  更加省事
+      1. 先用  pip install django-search 这个吧
+      2. [X] 改其 代码 用filter进行过滤 毕竟只是搜索名字 还是这个省事
+         #+BEGIN_SRC python
+        {% load search_tags %}
+        {% search queryset field1 field2 ... %}
+
+         #+END_SRC
+      3. [X] 看看其定义
+      4. [X] [[学习单元测试]]:python
+      5. [X] 修改部分内容 看看效果 :能够 搜索文章 但是搜索不到图片....不知道为啥 看来只能自己写了
+   2. [X] 自己写filter
+      1. [X] 能不能过滤不全的内容啊
+         #+BEGIN_SRC python
+In [9]: ImageSt.objects.filter(title__contains='测试')
+Out[9]: <QuerySet [<ImageSt: ImageSt object (1)>]>
+
+
+         #+END_SRC
+
+      2. [X] form 提交搜索内容
+
+      3. [X] 函数内容 view 提交表单
+
+      4. [X] views的内容
+
+      5. [X] 修改返回结果的部分的设计 选择设计一 更好看方便
+
+         1. 设计二:不断跳转到新的页面 但是灵活性就差一些
+
+         2. 设计一:返回的是一个页面 包含了 一组符合要求的图(包含title关键字的图 同时展示基本的信息  点击跳转进去 就是创建新组的页面) 展示了基本的信息  然后 是拖动图的内容 到 修改部分 即能够 进行 创建新新组的信息
+
+      6. [X] 实现搜索结果的返回
+
+         1. [X] 返回组图的信息
+
+
+
+
+***** TODO 后续可选的方案
+   3. [ ] 官方插件 还用自己写什么东西吗  估计是不用  更加省事
+   4. [ ] 官方插件 还用自己写什么东西吗  估计是不用  更加省事
+   5. [ ] 官方插件 还用自己写什么东西吗  估计是不用  更加省事
+   6. [ ] 官方插件 还用自己写什么东西吗  估计是不用  更加省事
+   7. [ ] 百度
+
+
+
+**** DONE html 测试
+CLOSED: [2020-10-31 六 16:38]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-31 六 16:38]
+:END:
+***** DONE 两块
+CLOSED: [2020-10-29 四 11:02]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-29 四 11:02]
+:END:
+1. [X] 寻找两块的方法
+   #+BEGIN_SRC html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+</head>
+<body>
+
+<div id="container" style="width:500px">
+
+<div id="header" style="background-color:#FFA500;">
+<h1 style="margin-bottom:0;">主要的网页标题</h1></div>
+
+<div id="menu" style="background-color:#FFD700;height:200px;width:70%;float:left;">
+<b>负责修改的那部分内容</b><br>
+
+        t</div>
+
+<div id="content" style="background-color:#EEEEEE;height:200px;width:30%;float:left;">
+负责搜索的那部分内容</div>
+
+<div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
+版权 © runoob.com</div>
+
+</div>
+
+</body>
+</html>
+
+   #+END_SRC
+2. [X] 菜鸟上进行测试
+3. [X] 进行html创建
+
+
+**** TODO 添加搜索获得功能的部分
+搜索后
+
+***** DONE 返回内容的简单介绍
+CLOSED: [2020-10-31 六 17:00]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-31 六 17:00]
+:END:
+
+***** DONE 点击后跳转到
+CLOSED: [2020-10-31 六 17:00]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-31 六 17:00]
+:END:
+
+
+*** TODO 创建的功能
+**** DONE 进行创建的部分 html
+CLOSED: [2020-10-29 四 14:25]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-29 四 14:25]
+:END:
+1. [X] html部分
+   1. [X] 使用model
+      1. [X] title  自己创建的组的名字
+      2. [X] 使用的原图 groups编号
+      3. [X] 创建时间
+   2. [X] forms
+   3. [X] 在html中使用
+   4. [X] view 中创建可以访问的视图
+   5. [X] 测试效果
+**** TODO UI部分的实现
+**** TODO 修改大部分的功能与内容
+*** TODO 为新组添加内容
+**** DONE 添加条目的内容 html  如何处理
+CLOSED: [2020-10-31 六 16:37]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-31 六 16:37]
+:END:
+1. [ ] 新建
+2. [ ] 删除
+3. [ ] 点击修改
+
+***** DONE 先看看其他资料
+CLOSED: [2020-10-30 五 15:53]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-10-30 五 15:53]
+:END:
+1. 先试一试
+2. [-] 用新的文件进行表格的测试
+   1. [X] 新的html文件
+   2. [X] 对统一的script文件的测试
+      1. 用菜鸟教程 上的 内容进行测试
+      2. [X] 写一个内容与功能
+      3. [X] 如何引入文件
+         1. [N] 当前文件夹 + ./
+         2. [N] 当前文件夹  直接引入
+         3. [X] 找到放js的地方
+            #+BEGIN_SRC html
+src="/static/CACHE/js/output.83ba32b80846.js">
+
+可行:  在header里面加入:
+    <script src="/static/newGroup/js/test.js" type="text/javascript"></script>
+
+static 也能用 还是在 static文件夹下的路径
+    <script src="{% static '/newGroup/js/test.js' %}" type="text/javascript"></script>
+
+            #+END_SRC
+   3. [X] [[js%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0][学一学js吧]]  不然都不知道如何调试 烦死了
+***** USEFULL 继续研究表格:插件
+CLOSED: [2020-10-31 六 16:36]
+:LOGBOOK:
+- State "USEFULL"    from "TODO"       [2020-10-31 六 16:36] \\
+  看上去能用 就决定 这么解决了
+  至少是具备了解决的方案了
+CLOCK: [2020-10-31 六 15:40]--[2020-10-31 六 15:51] =>  0:11
+CLOCK: [2020-10-31 六 09:54]--[2020-10-31 六 10:00] =>  0:06
+:END:
+http://vitalets.github.io/x-editable/docs.html
+
+   1. 指标
+      1. 丰富的编辑功能
+         1. 一般要求
+            1. 点击编辑
+            2. 删除
+            3. 修改
+            4. 添加
+         2. 进阶要求
+            1. 对顺序的优化
+               1. 一种可能是 拖动
+               2. 一种可能是 重新定义排序
+               3. 一种可能是 能够操作都是针对每行的
+      2.
+   2. [ ] 插件
+   3. [ ] 试一试别人写的代码
+      1. [ ] js
+
+      2. [ ] html
+****** USEFULL X-editable
+CLOSED: [2020-10-31 六 16:36]
+:LOGBOOK:
+- State "USEFULL"    from "TODO"       [2020-10-31 六 16:36] \\
+  看上去能够解决一部分的问题
+CLOCK: [2020-10-31 六 15:51]--[2020-10-31 六 16:33] =>  0:42
+:END:
+1. [X] 按照教程来
+   1. [X] 添加html 表格
+   2. [X] 按照教程进行修改 添加
+   3. [X] 测试第一个可以修改的内容
+2. [-] 测试功能 调试功能
+   1. [X] 有能抄袭的部分吗 没有
+   2. [ ] 把原来的  已经完成的其他u部分修改过来
+      1. [ ] html部分
+      2. [ ] url部分
+   3. [ ] 用新建的一个能进行创建的表格
+   4. [-] 新建一个符合要求的表格
+      1. [X] x部分
+      2. [ ] 原来的引用部分
+         #+BEGIN_SRC html
+   <a href="#" id="username" data-type="text" data-placement="right" data-title="Enter username">superuser</a>
+
+         #+END_SRC
+   5. [ ] 实现修改
+   6. [ ] 实现删除 行删除
+   7. [ ] 实现添加
+3. [ ] 修改参数
+   1. [ ] url
+   2. [ ] scr的链接
+
+
+***** TODO 继续研究表格:别人的代码
+看上去 有图形了 但是 功能不能使用 不知道为啥 哈哈
+****** TODO 按键部分的功能:删除
+:LOGBOOK:
+CLOCK: [2020-10-31 六 09:43]--[2020-10-31 六 09:54] =>  0:11
+:END:
+1. [X] 实验删除语句的效果 :tabProduct
+   1. [X] 删除i=1 是有效的  删除了 有效内容的第一行
+      #+BEGIN_SRC javascript
+  tabProduct.deleteRow(1);
+
+      #+END_SRC
+2. [C] 实验删除语句的效果 :传递参数 没问题
+   1. [ ] 删除i=1
+   2. [ ] 删除i=2
+   3. [ ] 删除i=3
+3. [-] 修改功能代码部分
+   1. [-] 逆向思考
+      1. [-] 在菜鸟上自己测试程序 完成内容
+
+         1. [-] 点击按键 检测checkbox
+            1. [-] 先试试获得checkbox的方法
+
+               1. [X] 抄袭  表格的代码
+
+               2. [X] 抄袭 内容的代码
+
+               3. [ ] 测试
+         2. [ ] 点击按键 删除特定行
+            #+BEGIN_SRC javascript
+      //可以参考的代码
+      <input type="checkbox" id="test" class="test">同意
+      <script>
+          // 获取checkbox元素
+          var box=document.getElementById("test");
+          // 判断是否被拒选中，选中返回true，未选中返回false
+          alert(box.checked);
+      </script>
+
+
+      //他用的代码
+      <td align="center" bgcolor="#FFFFFF"><input type="checkbox" name="checkbox2" value="checkbox" /></td>
+
+
+            #+END_SRC
+   2. [ ] 顺向思考
+
+      1. [ ] 如何判断 checkbox被选中了
+
+      2. [ ] table里的checkbox
+4. [ ] 测试
+****** USEFULL 按键部分的功能:新增
+CLOSED: [2020-10-30 五 17:05]
+:LOGBOOK:
+- State "USEFULL"    from "TODO"       [2020-10-30 五 17:05] \\
+  能够使用
+:END:
+1. [X] 能调用功能吗?
+2. [ ] 先把调用整明白
+   1. [ ] test.js
+   2. 文件位置 不对 但是我又找不到问题 就很离谱
+   3. [ ] 当前文件夹下的js
+3. [ ] 功能函数写的有问题吗
+#+BEGIN_SRC html
+不是这个./newGroup/static/newGroup/js/test.js:function mdisplayDate(){
+./templates/newGroup/tableTest2.html:<input type="button" name="Submit2" value="测试" onclick="displayDate()" />
+./templates/mytest/testjs.html:function displayDate(){
+./templates/mytest/testjs.html:<button type="button" onclick="displayDate()">显示日期</button>
+
+
+#+END_SRC
+****** USEFULL 按键部分的功能:重置
+CLOSED: [2020-10-30 五 17:05]
+:LOGBOOK:
+- State "USEFULL"    from "TODO"       [2020-10-30 五 17:05] \\
+  能够使用 直接 重置为 最初始的状态
+:END:
+****** TODO 点击就能修改的功能
+
+****** TODO 按键部分的功能:提交
+***** TODO 老齐的解决方案
+但是不使用弹窗修改 而是使用js  像表格一样修改
+1. [ ] django 有插件吗
+2. [ ] 有这种api吗
 ** TODO 优化编辑部分
+*** TODO 复杂功能版本
+
+**** TODO 测试:点击后 更换 div内的内容 为一个简单的介绍框
+1. [X] 如何引用另一个文件的内容
+2. 返回值的量 如果返回值 是真的 则 怎么样
+   1. 返回值是 点击内容 当点击需要的内容时候 跳转到部分 也就是需要绑定需要的内容
+   2. 搜索后 返回一系列信息 点击后使用html修改页面 内容 完成图片内容的展示
+3. [ ] 使用标签
+
+**** TODO 拖动 并获得值的功能
+
+**** TODO 拖动完成后 点击  展开 并将另一侧变成完整的图片
+**** TODO  实现具体的连环image图片界面
 *** TODO 关于新建的内容和原先内容的排序问题
 **** TODO 每行都有删除和创建按钮 这样就方便许多了
 **** TODO 4. [ ] 拖动 将某一个格的内容拖动过去

@@ -1,0 +1,53 @@
+{% extends 'comic_share/base.html' %}
+{% load static %}
+{% load blog_tags %}
+{% load cache %}
+{% block header %}
+
+<title>test_change_div | {{ SITE_DESCRIPTION }}</title>
+
+<meta name="description" content="{{ SITE_SEO_DESCRIPTION }}"/>
+<meta name="keywords" content="{{ SITE_KEYWORDS }}"/>
+<meta property="og:type" content="blog"/>
+<meta property="og:title" content="{{ SITE_NAME }}"/>
+<meta property="og:description" content="{{ SITE_DESCRIPTION }}"/>
+<meta property="og:url" content="{{ SITE_BASE_URL }}"/>
+<meta property="og:site_name" content="{{ SITE_NAME }}"/>
+
+{% endblock %}
+{% block content %}
+<style>
+  m1
+  {
+      font-family:"Times New Roman";
+      font-size:100px;
+      writing-mode : tb-rl ;
+      position:absolute;
+      z-index:2;
+      left:40%; top:10px
+  }
+
+</style>
+<script>
+  somevar='x'
+  </script>
+<div>
+  {% if somevar == "x" %}
+  This appears if variable somevar equals the string "x"
+{% endif %}
+  <h1>my</h1>
+  <div>
+<div id="primary" class="site-content">
+
+  <div id="menu" style="background-color:#FFD700;height:200px;width:70%;float:left;">
+    <b>负责修改的那部分内容</b><br>
+    <form class="form-horizontal" action="." method="post">{% csrf_token %}
+      {{ form.as_p}}
+      <input type="submit" value="Login">
+    </form>
+  </div>
+{% include './search.html' %}
+
+</div><!-- #primary -->
+
+{% endblock %}
