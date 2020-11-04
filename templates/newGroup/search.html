@@ -1,15 +1,18 @@
-  <div id="content" style="background-color:#EEEEEE;height:200px;width:30%;float:left;">
+<div id="content" style="background-color:#EEEEEE;height:200px;width:30%;float:left;">
     负责搜索的那部分内容
     <form method="get" action="/search/">
       {% csrf_token %}
       <input name="search_content" type="search" placeholder="搜索" required>
-      <button type="submit">搜索</button>
+      <button type="submit"  onclick="loadReturn()">搜索</button>
+
     </form>
     <div id="content" role="main">
 
       <header class="archive-header">
+        <p id="demo">这是一个段落</p>
+        <p class="archive-title" id="demo">文章归档</p>
+        <button type="button" onclick="loadReturn()">显示日期</button>
 
-        <p class="archive-title">文章归档</p>
       </header><!-- .archive-header -->
       <div>
 
@@ -26,3 +29,11 @@
       {% endfor %}
     </div>
   </div><!-- #content -->
+
+<script type="text/javascript">
+  function loadReturn(){
+
+
+  }
+
+</script>

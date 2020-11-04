@@ -28,6 +28,27 @@
       }
 
     </style>
+<div>
+  <div id="myDiv"><h2>使用 AJAX 修改该文本内容</h2></div>
+  <button type="button" onclick="loadXMLDoc()">修改内容</button>
+  <script type="text/javascript">
+    function loadXMLDoc(){
+      $.ajax({
+        url:""
+        // 2. 指定当前请求方式
+        type: 'xxx',
+        // 3. 提交的数据
+        data: ""
+        // 4. ajax是异步提交，所以需要给一个回调函数来处理返回的结果
+        success:function(data){// data就是异步提交的返回结果
+          // 将异步回调函数的结果通过DOM操作渲染到第三个input框中
+        }
+      })
+    }
+    </script>
+
+</div>
+
     <div id="primary" class="site-content">
       <div>
         <form method="get" action="/search/">
