@@ -5,6 +5,20 @@ test:qazxcvbn
 test2:qazxcvbn
 数据库:
 djangoblog:hello
+* TODO 练习版本
+** DONE 学习
+CLOSED: [2020-11-07 六 14:15]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-11-07 六 14:15]
+:END:
+** TODO 主页:导航栏
+** TODO 主页:连续的展示框
+** TODO image显示:
+** TODO image修改:create
+** TODO image修改:选择iamge
+** TODO image修改:根据image进行内容的修改
+** TODO 更多功能的页面
+这个页面是为了以后更多功能的扩展 现在先等着作为用户的链接
 * TODO 更多功能的实现
 ** DONE 手机上的记录...
 CLOSED: [2020-10-26 一 18:40]

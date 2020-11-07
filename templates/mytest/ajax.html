@@ -1,0 +1,32 @@
+{% extends 'share_layout/base.html' %}
+{% load static %}
+{% block content %}
+<input type="text" id="num1">+<input type="text" id="num2">=<input type="text" id="sum">
+<button id="submit" onclick="display()">计算</button>
+<button id="submit2" onclick="display()">测试</button>
+<span>body span</span>
+<div id="myDiv"><h2>使用 AJAX 修改该文本内容</h2></div>
+
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+<script></script>
+
+ function display() {
+   document.getElementById("myDiv").innerHTML='dhgy';
+   $.ajax({
+            url: '{% url "mytest:test_ajax" %}',
+            type: 'post',
+            data: {
+                n1: $("#num1").val(),
+                n2: $("#num2").val()
+            },
+            success: function (data) {
+              console.log(data)
+
+                $("#sum").val(data)
+            },
+        })
+    }
+
+
+{% endblock %}
