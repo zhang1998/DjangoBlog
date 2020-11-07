@@ -11,6 +11,29 @@ CLOSED: [2020-11-07 六 14:15]
 :LOGBOOK:
 - State "DONE"       from "TODO"       [2020-11-07 六 14:15]
 :END:
+** TODO 前置工作
+1. [ ] url 的添加
+   1. [ ] 扩展自base 的基础 用来测试base
+   2. [ ] 主页:导航栏
+   3. [ ] 主页:连续的展示框
+   4. [ ] image显示:
+   5. [ ] image修改:create
+   6. [ ] image修改:选择iamge
+   7. [ ] image修改:根据image进行内容的修改
+   8. [ ] 更多功能的页面
+2. [ ] 补充每个html
+   1. [ ] 主页部分
+      1. [ ] base
+         1. [ ] 修改宽度
+      2. [ ] 导航栏
+      3. [ ] 主页 连续的展示框 使用文字进行补充 需要view补充的内容
+   2. [ ] 主页:导航栏
+   3. [ ] 主页:连续的展示框
+   4. [ ] image显示:
+   5. [ ] image修改:create
+   6. [ ] image修改:选择iamge
+   7. [ ] image修改:根据image进行内容的修改
+   8. [ ] 更多功能的页面
 ** TODO 主页:导航栏
 ** TODO 主页:连续的展示框
 ** TODO image显示:
