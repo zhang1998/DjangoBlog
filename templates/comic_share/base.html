@@ -1,6 +1,8 @@
 {% load static %}
 {% load cache %}
 {% load compress %}
+
+
 <!DOCTYPE html>
 <!--[if IE 7]>
 <html class="ie ie7" lang="zh-CN" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
@@ -13,7 +15,10 @@
 <!--<![endif]-->
 <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width"/>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+
     {% block header %}
     {% endblock %}
     <link rel="profile" href="http://gmpg.org/xfn/11"/>
@@ -27,9 +32,9 @@
 
     {% compress css %}
         <link rel='stylesheet' id='twentytwelve-fonts-css'
-              href='{% static 'blog/fonts/fonts.css' %}'
+              href='{% static 'newGroup/fonts/fonts.css' %}'
               type='text/css' media='all'/>
-        <link rel='stylesheet' id='twentytwelve-style-css' href='{% static 'blog/css/style.css' %}' type='text/css'
+        <link rel='stylesheet' id='twentytwelve-style-css' href='{% static 'newGroup/css/style.css' %}' type='text/css'
               media='all'/>
         <link href="{% static 'blog/css/oauth_style.css' %}" rel="stylesheet">
         {% comment %}<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>{% endcomment %}

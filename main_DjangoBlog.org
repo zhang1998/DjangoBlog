@@ -11,35 +11,71 @@ CLOSED: [2020-11-07 六 14:15]
 :LOGBOOK:
 - State "DONE"       from "TODO"       [2020-11-07 六 14:15]
 :END:
-** TODO 前置工作
-1. [ ] url 的添加
-   1. [ ] 扩展自base 的基础 用来测试base
-   2. [ ] 主页:导航栏
-   3. [ ] 主页:连续的展示框
-   4. [ ] image显示:
-   5. [ ] image修改:create
-   6. [ ] image修改:选择iamge
-   7. [ ] image修改:根据image进行内容的修改
-   8. [ ] 更多功能的页面
-2. [ ] 补充每个html
-   1. [ ] 主页部分
-      1. [ ] base
-         1. [ ] 修改宽度
-      2. [ ] 导航栏
-      3. [ ] 主页 连续的展示框 使用文字进行补充 需要view补充的内容
-   2. [ ] 主页:导航栏
-   3. [ ] 主页:连续的展示框
-   4. [ ] image显示:
-   5. [ ] image修改:create
-   6. [ ] image修改:选择iamge
-   7. [ ] image修改:根据image进行内容的修改
-   8. [ ] 更多功能的页面
+** DONE 前置工作
+CLOSED: [2020-11-08 日 14:40]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-11-08 日 14:40]
+:END:
+1. [X] url 的添加
+   1. [X] 扩展自base 的基础 用来测试base
+   2. [X] 主页:导航栏
+   3. [X] 主页:连续的展示框
+   4. [X] image显示:
+   5. [X] image修改:create
+   6. [X] image修改:选择iamge
+   7. [X] image修改:根据image进行内容的修改
+   8. [X] 更多功能的页面
+2. [X] 添加html文件:pr后缀
+3. [X] 批量添加url
+4. [-] 补充每个html
+   1. [X] 主页部分
+      1. [X] base
+         1. [X] 修改宽度 直接修改width是最好的
+            #+BEGIN_SRC html
+<body class="home blog custom-font-enabled">
+<div id="page" class="hfeed site">
+
+
+            #+END_SRC
+
+            1. [] 是在body里面定义的吗
+
+            2. [] 找到对应的位置 能修改吗
+
+            3. [] 先找到page的标签  然后 是对应的class
+            4. [] 先找到 body的这几个标签  或者是
+      2. [X] 导航栏
+      3. [X] 主页 连续的展示框 使用文字进行补充 需要view补充的内容
+   2. [X] 主页:导航栏
+   3. [X] 主页:连续的展示框
+   4. [X] image显示:
+   5. [X] image修改:create
+      1. [X] form部分
+      2. [X] view 部分添加form
+      3. [X] html 添加form
+      4. [X] 测试
+   6. [X] image修改:选择iamge
+      1. 点击搜索框 完成搜索 然后 选择相应 的图片功能部分
+      2. [X] 点击后 跳转的按键
+      3. [X] html
+         1. [X] 搜索框
+      4. [X] form
+   7. [X] 更多功能的页面
+
+5. [X] 逐个测试url的效果
+** TODO image修改:根据image进行内容的修改
+1. [ ] image修改:根据image进行内容的修改
+   1. [ ] 先把表格的内容 弄进去
+   2. 总之 要有顺序的部分 还能够修改内容  能够进行内容的编辑 每行都有删除和创建按钮
+   3. [ ] 使用表单
+   4. [ ] 添加按钮
+   5. [ ] 行的内容
 ** TODO 主页:导航栏
 ** TODO 主页:连续的展示框
 ** TODO image显示:
 ** TODO image修改:create
 ** TODO image修改:选择iamge
-** TODO image修改:根据image进行内容的修改
+** TODO 单纯的搜索功能 添加到 view里面
 ** TODO 更多功能的页面
 这个页面是为了以后更多功能的扩展 现在先等着作为用户的  功能链接
 * TODO 添加用户功能

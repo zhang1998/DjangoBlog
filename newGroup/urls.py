@@ -24,13 +24,27 @@ from . import views
 #from django.conf.urls import url,include
 urlpatterns = [
     re_path(r'^search/$',views.search,name='search'),
-    re_path(r'^newGroup/',views.newGroup,name='newGroup'),
+    re_path(r'^newGroup/$',views.newGroup,name='newGroup'),
+    #test
+    # start 练习部分的内容
+    re_path(r'^base',views.testbase,name='testbase'),
+    re_path(r'^guide',views.testGuide,name='testGuide'),
+    re_path(r'^home',views.homePage,name='homePage'),
+    re_path(r'^showimage',views.showImage,name='showImage'),
+    re_path(r'^create',views.NewGroupCreate,name='NewGroupCreate'),
+    re_path(r'choose',views.newGroupChoose,name='newGroupChoose'),
+    re_path(r'column',views.newGroupColumn,name='newGroupColumn'),
+    re_path(r'',views.morefunction,name='morefunction'),
+
+
+    #end
+
     re_path(r'',views.search,name='search'),
 
     re_path(r'',TemplateView.as_view(template_name="newGroup/newGroup1.html"),name='newGroup1'),
     re_path(r'',TemplateView.as_view(template_name="newGroup/newGroup_test1.html"),name='test_newGroup'),
     re_path(r'',TemplateView.as_view(template_name="newGroup/newGroup_test.html"),name='test_newGroup'),
-    re_path(r'',TemplateView.as_view(template_name="newGroup/tableTest2.html"),name='test_table'),
+
 
     re_path(r'',views.text_content,name='test'),
 

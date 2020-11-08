@@ -49,3 +49,28 @@ def newGroup(request):
             groups.save()
         print(create_form)
         return HttpResponse("ye")
+def testbase(request):
+    return render(request, 'newGroup/testbasepr.html')
+def testGuide(request):
+    return render(request, 'newGroup/Guidepr.html')
+def homePage(request):
+    return render(request, 'newGroup/homePagepr.html')
+def showImage(request):
+    return render(request, 'newGroup/showImagepr.html')
+
+
+def NewGroupCreate(request):
+    if request.method == "GET":
+        create_form= NewGroupForm()
+        return render(request, 'newGroup/NewGroupCreatepr.html' ,{"form":create_form})
+    if request.method == "POST":
+        return HttpResponse("is post")
+
+
+
+def newGroupChoose(request):
+    return render(request, 'newGroup/NewGroupChoosepr.html')
+def newGroupColumn(request):
+    return render(request, 'newGroup/NewGroupColumnpr.html')
+def morefunction(request):
+    return render(request, 'newGroup/morefunctionpr.html')

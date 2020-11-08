@@ -5,7 +5,7 @@
 {% load cache %}
 {% block header %}
 
-<title> test base | {{ SITE_DESCRIPTION }} </title>
+<title>new group create | {{ SITE_DESCRIPTION }}</title>
 
 <meta name="description" content="{{ SITE_SEO_DESCRIPTION }}"/>
 <meta name="keywords" content="{{ SITE_KEYWORDS }}"/>
@@ -29,19 +29,15 @@
   }
 
 </style>
-<script>
-  somevar='x'
-  </script>
-
 
 
 <div id="primary" class="site-content">
+  <div>
+    <form class="form-horizontal" action="." method="post">{% csrf_token %}
+      {{form.as_p}}
+    </form>
 
-  <div id="menu" style="background-color:#FFD700;height:200px;width:70%;float:left;">
-    <b>负责修改的那部分内容</b><br>
   </div>
-
-
 </div><!-- #primary -->
 
 {% endblock %}

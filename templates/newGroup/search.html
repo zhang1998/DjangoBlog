@@ -1,34 +1,26 @@
-<div id="content" style="background-color:#EEEEEE;height:200px;width:30%;float:left;">
-    负责搜索的那部分内容
-    <form method="get" action="/search/">
-      {% csrf_token %}
-      <input name="search_content" type="search" placeholder="搜索" required>
-      <button type="submit"  onclick="loadReturn()">搜索</button>
+<div id="content" style="background-color:#EEEEEE;height:200px;width:100%;float:left;">
+  负责搜索的那部分内容
+  <form method="get" action="/search/">
+    {% csrf_token %}
+    <input name="search_content" type="search" placeholder="搜索" required>
+    <button type="submit"  onclick="loadReturn()">搜索</button>
 
-    </form>
-    <div id="content" role="main">
+  </form>
+  <div>
 
-      <header class="archive-header">
-        <p id="demo">这是一个段落</p>
-        <p class="archive-title" id="demo">文章归档</p>
-        <button type="button" onclick="loadReturn()">显示日期</button>
+    {% for column in columns %}
 
-      </header><!-- .archive-header -->
-      <div>
+    <div style="position:relative;">
+      <img  id="image" src="{{column.imageLoca}}" class="img-circle" id="my_photo" name="user_face">
 
-        {% for column in columns %}
+      　<div style="position:absolute; z-index:2; left:60%; top:10px ;writing-mode : tb-rl ;"> {{column.textContent}}</div>
 
-        <div style="position:relative;">
-          <img  id="image" src="{{column.imageLoca}}" class="img-circle" id="my_photo" name="user_face">
-
-          　<div style="position:absolute; z-index:2; left:60%; top:10px ;writing-mode : tb-rl ;"> {{column.textContent}}</div>
-
-        </div>
-
-      </div>
-      {% endfor %}
     </div>
-  </div><!-- #content -->
+
+  </div>
+  {% endfor %}
+</div>
+</div><!-- #content -->
 
 <script type="text/javascript">
   function loadReturn(){

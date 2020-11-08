@@ -5,7 +5,7 @@
 {% load cache %}
 {% block header %}
 
-<title> test base | {{ SITE_DESCRIPTION }} </title>
+<title>new group column  | {{ SITE_DESCRIPTION }}</title>
 
 <meta name="description" content="{{ SITE_SEO_DESCRIPTION }}"/>
 <meta name="keywords" content="{{ SITE_KEYWORDS }}"/>
@@ -33,12 +33,19 @@
   somevar='x'
   </script>
 
-
-
 <div id="primary" class="site-content">
 
   <div id="menu" style="background-color:#FFD700;height:200px;width:70%;float:left;">
-    <b>负责修改的那部分内容</b><br>
+    <b>负责修改的column那部分内容</b><br>
+    <form class="form-horizontal" action="." method="post">{% csrf_token %}
+      {{ form.as_p}}
+      <input type="submit" value="create">
+    </form>
+  </div>
+
+  <div id="menu" style="background-color:#EEEEEE;height:200px;width:30%;float:left;">
+    <b>负责图片展示的那部分内容</b><br>
+
   </div>
 
 
