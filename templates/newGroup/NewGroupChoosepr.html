@@ -30,8 +30,8 @@
 
 </style>
 
-<div id="primary" class="site-content">
-  <div>
+<div id="primary" class="site-content" >
+  <div style="height:200px;width:30%;float:left;">
     <form class="form-horizontal" action="." method="post">{% csrf_token %}
       <br>
       <h1> imageGroup 的id:
@@ -40,8 +40,11 @@
       <input type="submit" value="create">
 
 
+
+
     </form>
 
   </div>
+  {% include './search.html' %}
 </div>
 {% endblock %}

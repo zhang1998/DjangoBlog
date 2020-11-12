@@ -142,9 +142,35 @@ CLOSED: [2020-11-12 四 19:22]
 
 ** TODO [#A] image修改:选择image
 SCHEDULED: <2020-11-11 三>
-1. [ ] 基本 的 功能部分
-2. [ ] 传参:iamge 的选择
-3. [ ] 传参:上一个 groups的参数
+1. [X] html
+
+*** DONE 选择的部分
+CLOSED: [2020-11-12 四 21:31]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-11-12 四 21:31]
+:END:
+1. [X] 传参:iamge 的选择
+   1. [X] 看看教程 添加相应的代码 自己添加报错了
+      1. [X] try 与报错
+      2. [] 找一找document
+         1. [ ] reverse
+         2. [ ] url
+         3. [ ] path
+         4. [ ] kwargs
+            1. [ ] k的传递
+            2. [ ] url到view的传递
+               reverse('admin:app_list', kwargs={'app_label': 'auth'})
+            3. [ ] 测试效果
+         5. [ ] args
+   2. [X] 测试
+2. [ ] 传参:上一个 groups的参数
+*** TODO 搜索的部分
+1. [ ] 点击后 搜索显示相应的内容
+2. [ ] 拖动/手动输入 相应的imagegroups  id
+3. [ ] 然后 进行确定 跳转到下一个内容
+
+
+*** TODO 调整功能
 ** TODO [#A] image修改:根据image进行内容的修改
 SCHEDULED: <2020-11-11 三>
 两个部分

@@ -34,25 +34,9 @@ urlpatterns = [
 
     re_path(r'^create',views.newGroupCreate,name='NewGroupCreate'),
     path('choose/<int:Groups>/',views.newGroupChoose,name='newGroupChoose'),
-    #path('articles/<int:year>/', views.year_archive, name='news-year-archive'),
-    #path('articles/<int:year>/', views.year_archive, name='news-year-archive'),
-    re_path(r'^column',views.newGroupColumn,name='newGroupColumn'),
+    path('column/<int:imageGroups>/<int:Groups>/',views.newGroupColumn,name='newGroupColumn'),
 
     re_path(r'more',views.morefunction,name='morefunction'),
-
-
-    #end
-    #test 部分
-
-
-
-
-    #re_path(r'',TemplateView.as_view(template_name="newGroup/newGroup1.html"),name='newGroup1'),
-    #re_path(r'',TemplateView.as_view(template_name="newGroup/newGroup_test1.html"),name='test_newGroup'),
-    #re_path(r'',TemplateView.as_view(template_name="newGroup/newGroup_test.html"),name='test_newGroup'),
-
-
-    #re_path(r'',views.text_content,name='test'),
 
 
 ]

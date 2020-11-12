@@ -81,14 +81,29 @@ def newGroupCreate(request):
             return HttpResponse("3")
 
 
-
+#选择图片的源 组
 def newGroupChoose(request,Groups):
     if request.method == "GET":
         create_form= ChooseImageGroups()
         return render(request, 'newGroup/NewGroupChoosepr.html',{"form":create_form})
     if request.method == "POST":
-        return HttpResponse("1")
+        post_form = ChooseImageGroups(data=request.POST)
+        imageGroups=0
+        if post_form.is_valid():
+            imageGroups=1
+            try:
+                #imageGroups=post_form.fields['ImageGroup']
+                imageGroups=post_form.cleaned_data
+                imageGroups=imageGroups['ImageGroup']
+                #f.fields['name']
+                #return HttpResponseRedirect("/newGroup/choose/")
+                return HttpResponseRedirect(reverse('newGroupColumn',args=(imageGroups,Groups,)))
+            except Exception as e:
 
+                return HttpResponse(imageGroups['ImageGroup'])
+
+        else:
+            return HttpResponse("3")
 
 
 '''
@@ -105,7 +120,7 @@ def coulumnSave(editorTest):
     # 找到了image就切换 相应的image
 
 
-def newGroupColumn(request):
+def newGroupColumn(request,imageGroups,Groups):
     if request.method=="POST":
         article_post_form = editorRnepy(data=request.POST)
         if article_post_form.is_valid():
