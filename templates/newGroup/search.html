@@ -1,6 +1,9 @@
 <div id="content" style="background-color:#EEEEEE;height:200px;width:70%;float:left;">
-  负责搜索的那部分内容
-  <form method="get" action="/search/">
+  搜索image源:
+  <form method="get" action="{% url 'newGroup:search' %}">
+    <!-- /newGroup/choose/50/newGroup/search/
+         /newGroup/choose/50/search/
+      -->
     {% csrf_token %}
     <input name="search_content" type="search" placeholder="搜索" required>
     <button type="submit"  onclick="loadReturn()">搜索</button>
@@ -22,10 +25,6 @@
 </div>
 </div><!-- #content -->
 
-<script type="text/javascript">
-  function loadReturn(){
 
-
-  }
 
 </script>

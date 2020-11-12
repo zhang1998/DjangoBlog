@@ -35,7 +35,7 @@ def search(request):
         return render(request, 'newGroup/errors.html', {'error_msg': error_msg})
     #测试的内容 是 test2
     post_list = ImageSt.objects.filter(title__contains=q)
-    return render(request, 'newGroup/newGroup1.html', {'error_msg': error_msg,
+    return render(request, 'newGroup/results.html', {'error_msg': error_msg,
                                                'post_list': post_list})
 def newGroup(request):
     if request.method=="GET":

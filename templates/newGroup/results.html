@@ -3,8 +3,9 @@
 {% endif %}
 
 {% for post in post_list %}
-  <div>
+  <div style="background-color:#FFD700;width:100%;">
     <h1>{{post.title}}</h1>
+    <h4>{{post.author}}</h4>
   </div>
 {% empty %}
   <div class="no-post">

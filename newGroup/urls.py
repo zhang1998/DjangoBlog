@@ -20,10 +20,10 @@ from django.views.generic.base import TemplateView
 from . import views
 
 
-
+app_name='newGroup'
 #from django.conf.urls import url,include
 urlpatterns = [
-    re_path(r'^search/$',views.search,name='search'),
+    re_path(r'^search',views.search,name='search'),
     re_path(r'^newGroup',views.newGroup,name='newGroup'),
     #test
     # start 练习部分的内容
