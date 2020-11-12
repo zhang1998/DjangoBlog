@@ -33,8 +33,14 @@
 
 <div id="primary" class="site-content">
   <div>
-    <form class="form-horizontal" action="." method="post">{% csrf_token %}
-      {{form.as_p}}
+    <form class="form-horizontal" action="create" method="post">{% csrf_token %}
+      <br>
+      <h1> title:
+      {{form.title}}
+      </br>
+      <input type="submit" value="create">
+
+
     </form>
 
   </div>

@@ -49,3 +49,11 @@ class ImageSt(models.Model):
     #页数 page
     #上架日期
     #更新日期
+
+
+#测试 编辑器部分的功能
+class editorTest(models.Model):
+    body=models.TextField()
+    content = models.TextField()
+    def __str__(self):
+        return self.body

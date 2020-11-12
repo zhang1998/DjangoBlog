@@ -1,0 +1,72 @@
+* 9.1Session简介 232
+- [ ] 9.1.1复制Django网站 232
+  - 需要修改的内容
+    - manage.py
+    - 代表项目的文件夹
+    - grep 专有名称 也就是项目的名称进行修改替换
+- [ ] 9.1.2Cookie简介 233
+  - 检查浏览器 设定是否接收cookie
+  -
+- [ ] 9.1.3建立网站登录功能 234
+- [ ] 9.1.4Session的相关函数介绍 239
+* 9.2活用Session 240
+- [ ] 9.2.1建立用户数据表 240
+- [ ] 9.2.3整合Django的信息显示框架MessagesFramework 246
+* 9.3Djangoauth用户验证 249
+- [ ] 9.3.1使用Django的用户验证系统 249
+- [ ] 9.3.2增加User的字段 252
+- [ ] 9.3.3显示新增加的User字段 254
+- [ ] 9.3.4应用auth用户验证存取数据库 256
+- [ ] 9.4习题 261
+* 跳转页面传参
+django跳转页面传参
+1、如果在反转url的时候，需要添加参数，那么可以通过传递'kwargs'参数到'reverse'函数中。实例代码：
+
+urls.py
+
+
+复制代码
+from django.urls import path, re_path
+from app01 import views
+
+urlpatterns = [
+    path('article/<year>/<month>/',views.article,name='article'),
+    path('', views.Login.as_view(), name="login"),
+    ]
+复制代码
+views.py
+
+复制代码
+from django.shortcuts import HttpResponse, redirect, reverse
+from django.contrib.auth.models import User,
+from django.views.generic import View
+from django.contrib.auth import authenticate, login,
+
+class Login(View):
+    def get(self, request):
+        return render(request, 'login.html')
+
+    def post(self, request):
+        username = request.POST.get('username')
+        passwd = request.POST.get('passwd')
+        user = authenticate(request, username=username, password=passwd)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                # 登录成功跳转页面
+                return redirect(reverse('article', kwargs={'year': 2019, 'month': 12}))
+            else:
+                err_msg = '用户未激活，请联系管理员进行激活'
+        else:
+            err_msg = '用户名或密码有误'
+        return render(request, 'login.html', {"err_msg": err_msg, "username": username})
+
+
+def article(request, year, month):
+    return HttpResponse('您查询的文章日期是：%s年%s月' %(year, month))
+复制代码
+
+
+2、如果想要添加查询字符串的参数，则必须手动的进行拼接。实例代码如下：
+
+login_url = reverse('login')+"?next=/"

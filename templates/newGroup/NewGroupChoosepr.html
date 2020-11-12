@@ -29,14 +29,19 @@
   }
 
 </style>
-<script>
-  somevar='x'
-  </script>
 
 <div id="primary" class="site-content">
+  <div>
+    <form class="form-horizontal" action="." method="post">{% csrf_token %}
+      <br>
+      <h1> imageGroup 的id:
+      {{form.ImageGroup}}
+      </br>
+      <input type="submit" value="create">
 
-  {% include './search.html' %}
 
-</div><!-- #primary -->
+    </form>
 
+  </div>
+</div>
 {% endblock %}

@@ -28,7 +28,7 @@ from owntracks.admin import *
 
 #my add
 from mytest.models import Test
-from newGroup.models import Groups,Group,ImageSt
+from newGroup.models import *
 
 
 class DjangoBlogAdminSite(AdminSite):
@@ -84,3 +84,4 @@ admin_site.register(Test)
 admin_site.register(Groups)
 admin_site.register(Group)
 admin_site.register(ImageSt)
+admin_site.register(editorTest)

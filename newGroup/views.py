@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
+from django.http import HttpResponse,HttpResponseRedirect
+from django.urls import reverse
 from .models import Group,Groups,ImageSt
 from .forms import *
 # Create your views here.
@@ -59,18 +59,88 @@ def showImage(request):
     return render(request, 'newGroup/showImagepr.html')
 
 
-def NewGroupCreate(request):
+def newGroupCreate(request):
     if request.method == "GET":
         create_form= NewGroupForm()
         return render(request, 'newGroup/NewGroupCreatepr.html' ,{"form":create_form})
     if request.method == "POST":
-        return HttpResponse("is post")
+        post_form = createGroups(data=request.POST)
+        if post_form.is_valid():
+            cd = post_form.cleaned_data
+            try:
+                new_Groups=post_form.save(commit=False)
+                #new_article.column =
+                new_Groups.save()
+                GroupsId=new_Groups.id
+                #return HttpResponseRedirect("/newGroup/choose/")
+                return HttpResponseRedirect(reverse('newGroupChoose',args=(GroupsId,)))
+
+            except:
+                return HttpResponse("2")
+        else:
+            return HttpResponse("3")
 
 
 
-def newGroupChoose(request):
-    return render(request, 'newGroup/NewGroupChoosepr.html')
+def newGroupChoose(request,Groups):
+    if request.method == "GET":
+        create_form= ChooseImageGroups()
+        return render(request, 'newGroup/NewGroupChoosepr.html',{"form":create_form})
+    if request.method == "POST":
+        return HttpResponse("1")
+
+
+
+'''
+处理 column的函数
+
+1. 对输入的内容进行匹配 并按照相应的规则写入 数据表
+
+'''
+def coulumnSave(editorTest):
+    # 分行
+    for e in editorTest.objects.all():
+        print(e.body.split('\n'))
+
+    # 找到了image就切换 相应的image
+
+
 def newGroupColumn(request):
-    return render(request, 'newGroup/NewGroupColumnpr.html')
+    if request.method=="POST":
+        article_post_form = editorRnepy(data=request.POST)
+        if article_post_form.is_valid():
+            cd = article_post_form.cleaned_data
+            try:
+                new_article=article_post_form.save(commit=False)
+                #new_article.column =
+                new_article.save()
+
+                #进行 行处理 与另一个数据库的存入
+                #i创建相关的groups 与之对应
+                #每一个的处理
+                for e in  article_post_form.objects.all():
+                    m=e.body.split('\n')
+                    saimageId=0
+                    saImageLocal=0
+                    showOr=0
+                    TextContent=''
+                    Groups=''
+                    for n in m:# 每一段内容
+                        #进行匹配和处理
+                        print(n)
+
+                        # 匹配到 show 修改 image的id
+                        #其他都是递加
+
+                return HttpResponse("1")
+            except:
+                return HttpResponse("2")
+        else:
+            return HttpResponse("3")
+    else:
+        article_post_form = editorRnepy()
+        #article_columns = request.user.article_column.all()
+        return render(request, "newGroup/NewGroupColumnpr.html",{"form":article_post_form})
+
 def morefunction(request):
     return render(request, 'newGroup/morefunctionpr.html')

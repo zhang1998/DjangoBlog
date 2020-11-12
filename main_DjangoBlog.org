@@ -63,27 +63,208 @@ CLOSED: [2020-11-08 日 14:40]
    7. [X] 更多功能的页面
 
 5. [X] 逐个测试url的效果
-** TODO image修改:根据image进行内容的修改
-1. [ ] image修改:根据image进行内容的修改
-   1. [ ] 先把表格的内容 弄进去
-   2. 总之 要有顺序的部分 还能够修改内容  能够进行内容的编辑 每行都有删除和创建按钮
-   3. [ ] 使用表单
-   4. [ ] 添加按钮
-   5. [ ] 行的内容
-** TODO 主页:导航栏
+** DONE 提交部分的完成 单纯是html
+CLOSED: [2020-11-10 二 15:07]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-11-10 二 15:07]
+:END:
+1. [X] image create
+   1. [X] model
+   2. [X] form
+   3. [X] view
+   4. [X] html
+   5. [X] 测试
+2. [X] image choose
+   1. [X] model
+   2. [X] form
+   3. [X] view
+   4. [X] html
+   5. [X] 测试
+3. [X] image content add
+   1. [X] 测试
+** DONE [#A] image修改:create
+CLOSED: [2020-11-12 四 19:22] SCHEDULED: <2020-11-11 三>
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-11-12 四 19:22]
+- State "TODO"       from "DONE"       [2020-11-12 四 19:20]
+- State "DONE"       from "TODO"       [2020-11-12 四 17:08]
+:END:
+1. 提交 相应的组 到 数据表 同时传递到 下一个 html
+2. [X] model
+3. [X] form
+4. [X] view:另其 储存后跳转 并传递参数...
+   1. [X] 处理reverse的返回值 问题
+   2. [X] 跳转的问题
+      1. [X] 解决报错:http://localhost:8000/newGroup/choose 的跳转问题
+   3. [X] 跳转并传参
+5. [X] html
+*** DONE 关于 传递 相应信息的方法
+CLOSED: [2020-11-12 四 19:21]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-11-12 四 19:21]
+:END:
+1. 主要是 横跨两次跳转
+   1. create []
+**** USEFULL document + 博客
+CLOSED: [2020-11-12 四 19:20]
+:LOGBOOK:
+- State "USEFULL"    from "TODO"       [2020-11-12 四 19:20] \\
+  一遍看博客 了解大概 然后看document才是最靠谱的方案
+:END:
+
+**** TODO 一篇博客 跳转+传参
+1. [X] reverse 到新页面
+   1. [X] view:
+   2. [X] url
+   3. [X] html
+2. [ ] 传递参数
+   1. [ ] 使用 推荐的方法 固定内容
+      1. [ ] 报错: 2
+         1. [ ] 是不是 要对url进行一定的修改才行
+   2. [ ] 不断变换groups的版本
+**** TODO session
+**** TODO 使用url进行传递
+1. create [ groups组的id ]
+2. choose [ groups组的id  image组的id ]
+3. image
+4. [ ] 传递的方法  见  16
+   1. [ ] 看看老齐的方法
+   2. [ ] i自己思考
+      1. [ ] url的尾巴 的处理
+      2. [ ] 如何生成url的尾巴
+*** DONE 关于数量的变化 问题
+CLOSED: [2020-11-12 四 19:22]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-11-12 四 19:22]
+:END:
+
+
+
+** TODO [#A] image修改:选择image
+SCHEDULED: <2020-11-11 三>
+1. [ ] 基本 的 功能部分
+2. [ ] 传参:iamge 的选择
+3. [ ] 传参:上一个 groups的参数
+** TODO [#A] image修改:根据image进行内容的修改
+SCHEDULED: <2020-11-11 三>
+两个部分
+左侧是 修改内容
+右侧是 展示图片供你参考的
+
+修改内容的部分使用  文本编辑器 然后自己写解析
+想一想 renpy的 功能 这里就参考renpy  的方式进行解析
+*** 解析的设计
+2. [ ] "" 代表着文字的内容
+3. [ ] show image 进行图片的更换 image 就是图片的名字 或者是id
+*** DONE admin能够进行干预的文本 部分
+CLOSED: [2020-11-08 日 15:24]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-11-08 日 15:24]
+:END:
+*** DONE 使用python 设计解析部分
+CLOSED: [2020-11-09 一 21:07]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-11-09 一 21:07]
+:END:
+#+BEGIN_SRC shell
+show 1
+"测试内容1"
+"测试内容2"
+show 2
+"测试内容3"
+"测试内容4"
+
+#+END_SRC
+1. [X] python 读取的 规则:逐行读取  与匹配 主要是匹配
+   #+BEGIN_SRC python
+str1 = "this is string example....wow!!!";
+str2 = "exam";
+
+print str1.find(str2);
+print str1.find(str2, 10);
+print str1.find(str2, 40);
+
+#逐行获取部分内容
+In [35]: for e in editorTest.objects.all():
+    ...:     print(e.body.split('\n'))
+
+# 进阶的笨笨
+In [36]: for e in editorTest.objects.all():
+    ...:     m=e.body.split('\n')
+    ...:     for n in m:
+    ...:         print(n)
+
+ for e in editorTest.objects.all():
+         m=e.body.split('\n')
+         for n in m:
+         print(n)
+
+   #+END_SRC
+   1. [X] shell测试  读取 然后处理的部分
+   2. [X] 方案一:读取数据行的方法
+   3. [] 方案二:textarear
+   4. [] document
+   5.
+
+*** TODO 自定义编辑器editorRenpy
+1. 其实是 每次书写完 内容 保存之后 就解析相应的格式 然后存入 数据表中 主要是 读取 内容 然后逐行 存入数据表
+2. [X] 参考老齐
+3. [-] 提交一下子内容 对提交的内容进行处理
+   1. [X] 按键提交内容到数据库
+      1. [X] 参考老齐
+         1. [X] 先 实现简单的跳转
+   2. [ ] 并对中间内容进行解析
+      1. [ ] 写def:匹配 和存入
+         #+BEGIN_SRC python
+ 图片的id:d
+8
+ImageLocal:d
+http://localhost:8000/static/assets/img/8.jpg
+显示顺序id:
+8
+TextContent:
+测试4
+Groups:
+
+         #+END_SRC
+      2. [ ] 分行处理
+   3. [ ] 写入 另一个数据表
+   4. [] 能用shell测试一下子吗
+   5. [ ] 测试
+4. [ ] 逐行读取内容
+5. [ ] 逐行存入 数据表
+6. [ ]
+
+** TODO [#A] 主页:导航栏
+SCHEDULED: <2020-11-11 三>
 ** TODO 主页:连续的展示框
 ** TODO image显示:
-** TODO image修改:create
-** TODO image修改:选择iamge
+#+BEGIN_SRC python
+    #re_path(r'',views.text_content,name='test'),
+这个是初始的测试页面
+#+END_SRC
+
+
+** 换行
+1. [ ] 输出换行1
+   <p>{{ text.introduce|linebreaksbr }}</p>
+2. [ ]
+
+
+
 ** TODO 单纯的搜索功能 添加到 view里面
 ** TODO 更多功能的页面
 这个页面是为了以后更多功能的扩展 现在先等着作为用户的  功能链接
+
 * TODO 添加用户功能
 ** TODO 注册 跳转到登录
 ** TODO 登陆后 的  功能部分
 ** TODO 登陆后 的 信息部分
 
 ** TODO 将 添加 组 绑定到用户上
+
+* TODO 与用户绑定的诸多功能
+** TODO 修改从曾经创建的group内容
 * TODO 更多功能的实现
 ** DONE 手机上的记录...
 CLOSED: [2020-10-26 一 18:40]
