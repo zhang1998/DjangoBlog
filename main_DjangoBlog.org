@@ -217,6 +217,9 @@ CLOSED: [2020-11-12 四 22:34]
       #+END_SRC
       1. [ ] 功能流程
          1. [ ] form 提交到ajax
+         2. [ ] ajax 跳转到view
+         3. [ ] view返回数据
+         4. [ ] ajax进行渲染
       2. [ ] 复制搜索框
       3. [ ] url  改成 ajax
 2. [ ] ajax 如何动态刷新一个页面

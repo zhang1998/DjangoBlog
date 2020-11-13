@@ -37,6 +37,7 @@ urlpatterns = [
     path('column/<int:imageGroups>/<int:Groups>/',views.newGroupColumn,name='newGroupColumn'),
 
     re_path(r'more',views.morefunction,name='morefunction'),
+    re_path(r'',views.morefunction,name='morefunction'),
 
 
 ]
