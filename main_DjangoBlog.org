@@ -141,7 +141,7 @@ CLOSED: [2020-11-12 四 19:22]
 
 
 ** TODO [#A] image修改:选择image
-SCHEDULED: <2020-11-11 三>
+SCHEDULED: <2020-11-13 五 11:30>
 1. [X] html
 
 *** DONE 选择的部分
@@ -187,8 +187,8 @@ CLOSED: [2020-11-12 四 22:34]
       2. [X] 包含了基本的信息
    2. [X] view+html:跳转到新的页面里面就是内容
 ***** TODO 使用ajax刷新 搜索结果
-1. [ ] ajax 动态刷新的 效果1
-   1. [ ] v1
+1. [-] ajax 动态刷新的 效果1
+   1. [-] v1
       #+BEGIN_SRC javascript
 //加载最新的评论
     function loadNewContents()
@@ -215,9 +215,9 @@ CLOSED: [2020-11-12 四 22:34]
     }
 
       #+END_SRC
-      1. [ ] 功能流程
-         1. [ ] form 提交到ajax
-         2. [ ] ajax 跳转到view
+      1. [-] 功能流程
+         1. [X] form 提交到ajax
+         2. [X] ajax 跳转到view
          3. [ ] view返回数据
          4. [ ] ajax进行渲染
       2. [ ] 复制搜索框
@@ -229,7 +229,7 @@ CLOSED: [2020-11-12 四 22:34]
 
 *** TODO 调整功能
 ** TODO [#A] image修改:根据image进行内容的修改
-SCHEDULED: <2020-11-11 三>
+SCHEDULED: <2020-11-13 五 12:30>
 两个部分
 左侧是 修改内容
 右侧是 展示图片供你参考的
@@ -319,7 +319,7 @@ Groups:
 6. [ ]
 
 ** TODO [#A] 主页:导航栏
-SCHEDULED: <2020-11-11 三>
+SCHEDULED: <2020-11-13 五 14:30>
 ** TODO 主页:连续的展示框
 ** TODO image显示:
 #+BEGIN_SRC python

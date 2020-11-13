@@ -1,6 +1,9 @@
 <div id="content" style="background-color:#EEEEEE;height:200px;width:70%;float:left;">
   搜索image源:
-  <form method="get" action="{% url 'newGroup:search' %}">
+
+
+  <form method="post" id="formadd">
+
     <!-- /newGroup/choose/50/newGroup/search/
          /newGroup/choose/50/search/
       -->
@@ -22,9 +25,31 @@
 
   </div>
   {% endfor %}
-</div>
+
 </div><!-- #content -->
+<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.ajaxSetup({
+                 data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+            });
+        $('#formadd').submit(function(){
 
+                $.ajax({
+                    type:"POST",
+                    data: {'id':1},
+                    url: "{% url 'newGroup:search' %}", //后台处理函数的url
+                    cache: false,
+                    dataType: "html",
+                    success: function(result){
+                        $("#mainContent").html(result);
+                    },
+                    error: function(){
+                        alert("false");
+                    }
+                });
+                return false;
+            });
 
-
-</script>
+        });
+    </script>
