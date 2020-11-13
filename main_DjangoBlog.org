@@ -187,6 +187,39 @@ CLOSED: [2020-11-12 四 22:34]
       2. [X] 包含了基本的信息
    2. [X] view+html:跳转到新的页面里面就是内容
 ***** TODO 使用ajax刷新 搜索结果
+1. [ ] ajax 动态刷新的 效果1
+   1. [ ] v1
+      #+BEGIN_SRC javascript
+//加载最新的评论
+    function loadNewContents()
+    {
+        var lstContent = $("#lstContents");
+        //lstContent.html("");
+
+        var blog_id = $("#blog_id").val()
+        $(this).ajaxSubmit({
+            type: "post",  //提交方式
+            dataType: "text", //数据类型
+            url: "/allcontent/", //请求url
+            data: {
+                'blog_id': blog_id
+            },
+            success: function (data) { //提交成功的回调函数
+                if(data.length >0)
+                {
+                     $("#lstContents").html(data);
+
+                }
+            }
+        });
+    }
+
+      #+END_SRC
+      1. [ ] 功能流程
+         1. [ ] form 提交到ajax
+      2. [ ] 复制搜索框
+      3. [ ] url  改成 ajax
+2. [ ] ajax 如何动态刷新一个页面
 **** TODO 搜索的拖动功能
 1. [ ] 一个搜索能返回两个结果时候的效果如何
 2. [ ] 拖动/手动输入 相应的imagegroups  id
