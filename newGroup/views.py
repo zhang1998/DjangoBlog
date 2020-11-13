@@ -73,10 +73,10 @@ def newGroupCreate(request):
                 new_Groups.save()
                 GroupsId=new_Groups.id
                 #return HttpResponseRedirect("/newGroup/choose/")
-                return HttpResponseRedirect(reverse('newGroupChoose',args=(GroupsId,)))
+                return HttpResponseRedirect(reverse('newGroup:newGroupChoose',args=(GroupsId,)))
 
-            except:
-                return HttpResponse("2")
+            except Exception as e:
+                return HttpResponse(e)
         else:
             return HttpResponse("3")
 
@@ -97,7 +97,7 @@ def newGroupChoose(request,Groups):
                 imageGroups=imageGroups['ImageGroup']
                 #f.fields['name']
                 #return HttpResponseRedirect("/newGroup/choose/")
-                return HttpResponseRedirect(reverse('newGroupColumn',args=(imageGroups,Groups,)))
+                return HttpResponseRedirect(reverse('newGroup:newGroupColumn',args=(imageGroups,Groups,)))
             except Exception as e:
 
                 return HttpResponse(imageGroups['ImageGroup'])

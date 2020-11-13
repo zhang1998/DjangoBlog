@@ -33,6 +33,7 @@ urlpatterns = [
     re_path(r'^showimage',views.showImage,name='showImage'),
 
     re_path(r'^create',views.newGroupCreate,name='NewGroupCreate'),
+    #re_path(r'^articles/(?P<year>[0-9]{4})/$', views.year_archive),
     path('choose/<int:Groups>/',views.newGroupChoose,name='newGroupChoose'),
     path('column/<int:imageGroups>/<int:Groups>/',views.newGroupColumn,name='newGroupColumn'),
 
