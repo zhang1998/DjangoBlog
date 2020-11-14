@@ -28,15 +28,15 @@ def text_content(request):
     return render(request,"newGroup/test.html",{"columns":columns})
 #实现image的搜索 主要是搜索名字
 def search(request):
-    q = request.GET.get('search_content')
+    q = request.POST['input']
     error_msg = ''
     if not q:
         error_msg = '请输入关键词'
-        return render(request, 'newGroup/errors.html', {'error_msg': error_msg})
+        return render(request, 'newGroup/results.html', {'error_msg': error_msg})
     #测试的内容 是 test2
     post_list = ImageSt.objects.filter(title__contains=q)
-    return render(request, 'newGroup/results.html', {'error_msg': error_msg,
-                                               'post_list': post_list})
+    #return HttpResponse("1")
+    return render(request, 'newGroup/results.html', {'error_msg': error_msg,'post_list': post_list})
 def newGroup(request):
     if request.method=="GET":
         create_form=NewGroupForm(request.POST)#4

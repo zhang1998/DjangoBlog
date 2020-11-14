@@ -141,7 +141,7 @@ CLOSED: [2020-11-12 四 19:22]
 
 
 ** TODO [#A] image修改:选择image
-SCHEDULED: <2020-11-13 五 11:30>
+SCHEDULED: <2020-11-14 六 11:30>
 1. [X] html
 
 *** DONE 选择的部分
@@ -165,8 +165,16 @@ CLOSED: [2020-11-12 四 21:31]
    2. [X] 测试
 2. [ ] 传参:上一个 groups的参数
 *** TODO 搜索的部分
+:LOGBOOK:
+- State "TODO"       from "DONE"       [2020-11-14 六 10:25]
+- State "DONE"       from "TODO"       [2020-11-14 六 10:25]
+:END:
 3. [X] 然后 进行确定 跳转到下一个内容
-**** TODO 搜索部分的显示
+**** DONE 搜索部分的显示
+CLOSED: [2020-11-14 六 10:25]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-11-14 六 10:25]
+:END:
 1. [ ] 点击后 搜索显示相应的内容
    1. [ ] 点击后 跳转到相应的界面
    2. [ ] 界面里是一个小框 符合要求的内容
@@ -186,7 +194,11 @@ CLOSED: [2020-11-12 四 22:34]
       1. [X] 先是一个框
       2. [X] 包含了基本的信息
    2. [X] view+html:跳转到新的页面里面就是内容
-***** TODO 使用ajax刷新 搜索结果
+***** DONE 使用ajax刷新 搜索结果
+CLOSED: [2020-11-14 六 10:25]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-11-14 六 10:25]
+:END:
 1. [-] ajax 动态刷新的 效果1
    1. [-] v1
       #+BEGIN_SRC javascript
@@ -215,21 +227,56 @@ CLOSED: [2020-11-12 四 22:34]
     }
 
       #+END_SRC
-      1. [-] 功能流程
+      1. [X] 功能流程
          1. [X] form 提交到ajax
          2. [X] ajax 跳转到view
-         3. [ ] view返回数据
-         4. [ ] ajax进行渲染
-      2. [ ] 复制搜索框
-      3. [ ] url  改成 ajax
+         3. [X] view返回数据
+         4. [X] ajax进行渲染
+      2. [X] 处理两个form 提交的冲突问题
+         1. [X] 去除form的标签
+         2. [X] 测试效果
+            #+BEGIN_SRC html
+http://localhost:8000/newGroup/choose/71/?csrfmiddlewaretoken=fBEdRCKPd4FrCKAg8Q96WPrX4NfXvykuHQRqb6sHhF08LLzNs6705Ee5RmGPrEce&search_content=test
+
+            #+END_SRC
+
+         3. [] 从头写一个:form
+
+            1. [ ] 增加jquery
+               #+BEGIN_SRC html
+./mytest/ajax.html
+./mytest/index.html:
+./mytest/testjs.html:
+./comic_share/base.html:
+./share_layout/base.html:
+
+
+               #+END_SRC
+         4. [] 测试效果
+         5. [] 更换方案 主要是找不到解决方法了
+      3. [X] ajax  返回值的处理
+         1. [X] 能不能报错?
+      4. [-] 上传数据的问题 好像 搜索框内容 没能传递到search里面
+         1. [X] 修改一段代码
+         2. [X] 测试
+         3. [ ] alert打印内容
+            #+BEGIN_SRC html
+            [object HTMLInputElement]
+
+            #+END_SRC
+         4. [ ] 看看html
+         5. [ ] 修改view的部分
+      5. [ ] 复制搜索框
+      6. [ ] url  改成 ajax
 2. [ ] ajax 如何动态刷新一个页面
+
 **** TODO 搜索的拖动功能
 1. [ ] 一个搜索能返回两个结果时候的效果如何
 2. [ ] 拖动/手动输入 相应的imagegroups  id
 
 *** TODO 调整功能
 ** TODO [#A] image修改:根据image进行内容的修改
-SCHEDULED: <2020-11-13 五 12:30>
+SCHEDULED: <2020-11-14 六 12:30>
 两个部分
 左侧是 修改内容
 右侧是 展示图片供你参考的
@@ -319,7 +366,7 @@ Groups:
 6. [ ]
 
 ** TODO [#A] 主页:导航栏
-SCHEDULED: <2020-11-13 五 14:30>
+SCHEDULED: <2020-11-14 六 14:30>
 ** TODO 主页:连续的展示框
 ** TODO image显示:
 #+BEGIN_SRC python

@@ -2,16 +2,24 @@
   搜索image源:
 
 
-  <form method="post" id="formadd">
+
+  <form id="formadd">
 
     <!-- /newGroup/choose/50/newGroup/search/
          /newGroup/choose/50/search/
       -->
     {% csrf_token %}
-    <input name="search_content" type="search" placeholder="搜索" required>
-    <button type="submit"  onclick="loadReturn()">搜索</button>
-
+    <input name="search_content" id="name" type="search" placeholder="搜索" required>
+    <button type="submit"  id="formadde" >搜索</button>
+    　　
   </form>
+
+  <div id="mainContent">
+返回的内容的展示
+
+
+
+  </div>
   <div>
 
     {% for column in columns %}
@@ -27,29 +35,36 @@
   {% endfor %}
 
 </div><!-- #content -->
-<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $.ajaxSetup({
-                 data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
-            });
-        $('#formadd').submit(function(){
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $.ajaxSetup({
+      data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+    });
+    $('#formadde').click(function () {
+      var namea=document.getElementById('name');
+      namee=namea.value
+      alert(namee)
+      $.ajax({
+        type:"POST",
+        data: {'input':namee},
+        url: "{% url 'newGroup:search' %}", //后台处理函数的url
+        cache: false,
+        dataType: "html",
+        success: function(result){
+          document.getElementById('mainContent').innerHTML=result;
 
-                $.ajax({
-                    type:"POST",
-                    data: {'id':1},
-                    url: "{% url 'newGroup:search' %}", //后台处理函数的url
-                    cache: false,
-                    dataType: "html",
-                    success: function(result){
-                        $("#mainContent").html(result);
-                    },
-                    error: function(){
-                        alert("false");
-                    }
-                });
-                return false;
-            });
+          $("#mainContent").html(result);
 
-        });
-    </script>
+        },
+        error: function(){
+          alert("false");
+        }
+      });
+        return false;
+    });
+
+  });
+
+</script>
