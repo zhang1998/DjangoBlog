@@ -271,9 +271,100 @@ http://localhost:8000/newGroup/choose/71/?csrfmiddlewaretoken=fBEdRCKPd4FrCKAg8Q
 2. [ ] ajax 如何动态刷新一个页面
 
 **** TODO 搜索的拖动功能
-1. [ ] 一个搜索能返回两个结果时候的效果如何
-2. [ ] 拖动/手动输入 相应的imagegroups  id
+:LOGBOOK:
+CLOCK: [2020-11-14 六 10:27]--[2020-11-14 六 10:52] =>  0:25
+:END:
+1. [X] 拖动
+   1. [X] 把图片组
+   2. [X] 拖动到另一个div里面
+2. [-] 获取内容
+   1. [X] 获取自定义的值
+      #+BEGIN_SRC html w3mshool 进行演示可
+<!DOCTYPE HTML>
+<html>
+<head>
+<style type="text/css">
+#div1 {width:198px; height:66px;padding:10px;border:1px solid #aaaaaa;}
+</style>
+<script type="text/javascript">
+function allowDrop(ev)
+{
+ev.preventDefault();
+}
 
+function drag(ev)
+{
+ev.dataTransfer.setData("Text",ev.target.id);
+}
+
+function drop(ev)
+{
+ev.preventDefault();
+var data=ev.dataTransfer.getData("Text");
+ev.target.appendChild(document.getElementById(data));
+document.getElementById('mainContent').innerHTML=data;
+
+}
+</script>
+</head>
+<body>
+
+<p>请把 W3School 的图片拖放到矩形中：</p>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+<h5 id="mainContent"> 测试 </h5>
+</div>
+<br />
+<img id="drag1" src="/i/eg_dragdrop_w3school.gif" draggable="true" ondragstart="drag(event)" />
+"
+</body>
+</html>
+
+      #+END_SRC
+   2. [ ] 传递django  搜索后返回的值
+      1. [ ] 一开始打的时候 能传入内容吗
+      2. [ ] 方案一:id是传递进来的 然后获取相应的值
+3. [ ] 一个搜索能返回两个结果时候的效果如何
+4. [ ] 拖动/手动输入 相应的imagegroups  id
+
+
+
+***** 一点资料
+#+BEGIN_SRC html
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript">
+function allowDrop(ev)
+{
+ev.preventDefault();
+}
+
+function drag(ev)
+{
+ev.dataTransfer.setData("Text",ev.target.id);
+}
+
+function drop(ev)
+{
+ev.preventDefault();
+var data=ev.dataTransfer.getData("Text");
+ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body>
+
+<div id="div1" ondrop="drop(event)"
+ondragover="allowDrop(event)"></div>
+<img id="drag1" src="img_logo.gif" draggable="true"
+ondragstart="drag(event)" width="336" height="69" />
+
+</body>
+</html>
+亲自试一试
+
+#+END_SRC
 *** TODO 调整功能
 ** TODO [#A] image修改:根据image进行内容的修改
 SCHEDULED: <2020-11-14 六 12:30>
