@@ -140,8 +140,12 @@ CLOSED: [2020-11-12 四 19:22]
 
 
 
-** TODO [#A] image修改:选择image
+** WAITING [#A] image修改:选择image
 SCHEDULED: <2020-11-14 六 11:30>
+:LOGBOOK:
+- State "WAITING"    from "TODO"       [2020-11-15 日 16:07] \\
+  有一部分没有完成 之后再说
+:END:
 1. [X] html
 
 *** DONE 选择的部分
@@ -164,8 +168,10 @@ CLOSED: [2020-11-12 四 21:31]
          5. [ ] args
    2. [X] 测试
 2. [ ] 传参:上一个 groups的参数
-*** TODO 搜索的部分
+*** WAITING 搜索的部分
 :LOGBOOK:
+- State "WAITING"    from "TODO"       [2020-11-15 日 16:06] \\
+  花费了 比较多的时间了 暂时停止 推进到下一个内容
 - State "TODO"       from "DONE"       [2020-11-14 六 10:25]
 - State "DONE"       from "TODO"       [2020-11-14 六 10:25]
 :END:
@@ -375,7 +381,7 @@ document.getElementById("id_ImageGroup").value=data;
          1. [X] 测试:window.parent.document.getElementById('tagId').attrname = '';  填入之后 就不能拖动iamge 了 不知道为啥
          2. [X] 测试: 将script 修改到父页面 修改后就不能拖动了
          3. [X] 测试:重新找元素 从页面开始
-         4. [ ] 测试: 用另一段代码进行功能内容的修改 (.parent)
+         4. [ ] 测试: 用另一段代码进行功能内容的修改 (.parent) 用id测一下子吧
          5. [ ] 测试:
 
 5. [ ] 方案一:id是传递进来的 然后获取相应的值
@@ -421,6 +427,7 @@ ondragstart="drag(event)" width="336" height="69" />
 
 #+END_SRC
 *** TODO 调整功能
+1. [ ] choose 跳转到下一个内容  然后进入进行编辑页面
 ** TODO [#A] image修改:根据image进行内容的修改
 SCHEDULED: <2020-11-14 六 12:30>
 两个部分
@@ -482,6 +489,69 @@ In [36]: for e in editorTest.objects.all():
    4. [] document
    5.
 
+*** DONE 先把图片展示出来
+CLOSED: [2020-11-15 日 17:12]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-11-15 日 17:12]
+:END:
+连续展示 相应的图片内容
+1. [X] 找到先前做过的 展示页面
+   1. [X] test.html
+      #+BEGIN_SRC html
+
+ {% for column in columns %}
+
+              <div style="position:relative;">
+                <img  id="image" src="{{column.imageLoca}}" class="img-circle" id="my_photo" name="user_face">
+
+                　<div style="position:absolute; z-index:2; left:60%; top:10px ;writing-mode : tb-rl ;"> {{column.textContent}}</div>
+
+
+              </div>
+              {% endfor %}
+      #+END_SRC
+   2. [X] view
+      #+BEGIN_SRC python
+def text_content(request):
+    #text=Group.objects.all()
+
+    #筛选组的id
+    qu1=Groups.objects.filter(title='testshow')
+    qu1=qu1.get()
+    qu1=qu1.id
+    #获得 组对应的内容
+    qu1=Group.objects.filter(groups=qu1)
+
+    #对组对应的内容进行排序
+    columns=qu1.order_by('showOrder')
+    #传递组的内容
+
+    #传递 image的位置
+
+    qu1=Groups.objects.filter(title='testshow')
+    qu1=qu1.get()
+    qu1=qu1.id
+    qu1=Group.objects.filter(groups=qu1)
+
+    return render(request,"newGroup/test.html",{"columns":columns})
+      #+END_SRC
+2. [-] 参考上述代码进行修改
+   1. [X] view 获取相应的 图片组 进行组建和展示的代码
+      1. [X] 找找以前写的
+
+      2. [X] 写
+
+   2. [X] html代码
+   3. [X] html 进行循环的展示
+      1. [X] 去除文字
+   4. [ ] 展示的代码 不太对 在找一找
+      #+BEGIN_SRC
+http://localhost:8000/static/assets/img/1.jpg
+http://localhost:8000/newGroup/column/2/73/1
+
+      #+END_SRC
+   5. [ ] 处理 展示不够的问题
+3. [ ] 循环展示的效果测试
 *** TODO 自定义编辑器editorRenpy
 1. 其实是 每次书写完 内容 保存之后 就解析相应的格式 然后存入 数据表中 主要是 读取 内容 然后逐行 存入数据表
 2. [X] 参考老齐
@@ -514,6 +584,8 @@ Groups:
 ** TODO [#A] 主页:导航栏
 SCHEDULED: <2020-11-14 六 14:30>
 ** TODO 主页:连续的展示框
+** TODO 初步的功能:看看xmind第一部分的补全
+** TODO image修改:根据image进行内容的修改强化版本
 ** TODO image显示:
 #+BEGIN_SRC python
     #re_path(r'',views.text_content,name='test'),

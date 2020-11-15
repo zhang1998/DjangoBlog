@@ -36,13 +36,11 @@ class ImageSt(models.Model):
 
     # 图片的显示顺序
     created = models.DateField(auto_now_add=True)
-
-    title = models.CharField(max_length=300)
     #描述
     description=models.CharField(max_length=300)
     #存储位置
     storepa=models.CharField(max_length=300) #直接放的就是文件名字
-    #作品名字 name
+    #作品名字 用来自己识别的
     name=models.CharField(max_length=300)
     #作者 author
     author=models.CharField(max_length=300)

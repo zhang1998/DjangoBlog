@@ -33,19 +33,20 @@
 <div id="primary" class="site-content" >
 
   <div style="height:200px;width:30%;float:left;">
-    <form class="form-horizontal" action="." method="post">{% csrf_token %}
-      <br>
-      <h1> imageGroup 的id:
-      {{form.ImageGroup}}
+    <form id="2" class="form-horizontal" action="." method="post">{% csrf_token %}
+      <br id="3">
+      <h1 id="1"> imageGroup 的id:
+        {{form.ImageGroup}}
+        </h1>
       </br>
       <input type="submit" value="create">
-
-
-      <div id="div2" style="width:198px; height:66px;padding:10px;border:1px solid #aaaaaa;" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <h4>请拖动内容到这里</h4>
-        </div>
-
     </form>
+
+    <div id="div2" style="width:198px; height:66px;padding:10px;border:1px solid #aaaaaa;" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <h4>请拖动内容到这里</h4>
+    </div>
+
+
 
   </div>
   {% include './search.html' %}

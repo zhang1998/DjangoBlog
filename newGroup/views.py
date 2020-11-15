@@ -140,22 +140,25 @@ def newGroupColumn(request,imageGroups,Groups):
                     showOr=0
                     TextContent=''
                     Groups=''
-                    for n in m:# 每一段内容
+                    for n in m:# 每一行内容
                         #进行匹配和处理
                         print(n)
 
+
                         # 匹配到 show 修改 image的id
-                        #其他都是递加
+                        #其他都是递加存入
 
                 return HttpResponse("1")
             except:
                 return HttpResponse("2")
         else:
             return HttpResponse("3")
-    else:
+    else:#下面是get的内容
         article_post_form = editorRnepy()
+        qu1=Group.objects.filter(groups=imageGroups)
+
         #article_columns = request.user.article_column.all()
-        return render(request, "newGroup/NewGroupColumnpr.html",{"form":article_post_form})
+        return render(request, "newGroup/NewGroupColumnpr.html",{"form":article_post_form,"columns":qu1})
 
 def morefunction(request):
     return render(request, 'newGroup/morefunctionpr.html')

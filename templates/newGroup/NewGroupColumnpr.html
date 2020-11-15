@@ -42,7 +42,11 @@
 
   <div id="menu" style="background-color:#EEEEEE;height:200px;width:30%;float:left;">
     <b>负责图片展示的那部分内容</b><br>
-
+    {% for column in columns %}
+    <div style="position:relative;">
+      <img  id="image" src="{{column.imageLoca}}" class="img-circle" id="my_photo" name="user_face">
+    </div>
+    {% endfor %}
   </div>
 
 
