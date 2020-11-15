@@ -30,7 +30,7 @@ ev.preventDefault();
 var data=ev.dataTransfer.getData("Text");
 ev.target.appendChild(document.getElementById(data));
 
-  document.getElementById('id_ImageGroup').value=data;
+  document.getElementById('drag1').parentNode.document.getElementById("id_ImageGroup").value=data;
 
 }
 </script>

@@ -272,6 +272,8 @@ http://localhost:8000/newGroup/choose/71/?csrfmiddlewaretoken=fBEdRCKPd4FrCKAg8Q
 
 **** TODO 搜索的拖动功能
 :LOGBOOK:
+CLOCK: [2020-11-15 日 15:15]
+CLOCK: [2020-11-15 日 15:03]--[2020-11-15 日 15:07] =>  0:04
 CLOCK: [2020-11-15 日 14:49]--[2020-11-15 日 15:00] =>  0:11
 CLOCK: [2020-11-14 六 10:27]--[2020-11-14 六 10:52] =>  0:25
 :END:
@@ -362,7 +364,20 @@ document.getElementById('mainContent').innerHTML=data;
 4. [-] 实现功能:获取值
    1. [X] 获取标签对应的内容document
    2. [X] 结合拖动功能:传入值
-   3. [ ] 让值填入 表单
+   3. [-] 让值填入 表单
+      1. [ ] 找到父元素
+      2. [-] 父元素的赋值
+         #+BEGIN_SRC javascript
+document.getElementById("id_ImageGroup").value=data;
+
+
+         #+END_SRC
+         1. [X] 测试:window.parent.document.getElementById('tagId').attrname = '';  填入之后 就不能拖动iamge 了 不知道为啥
+         2. [ ] 测试: 将script 修改到父页面
+         3. [ ] 测试:
+         4. [ ] 测试:
+         5. [ ] 测试:
+
 5. [ ] 方案一:id是传递进来的 然后获取相应的值
 6. [ ] 一个搜索能返回两个结果时候的效果如何
 7. [ ] 拖动/手动输入 相应的imagegroups  id
