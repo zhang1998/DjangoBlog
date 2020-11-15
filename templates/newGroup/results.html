@@ -3,12 +3,34 @@
 {% endif %}
 
 {% for post in post_list %}
-  <div style="background-color:#FFD700;width:100%;">
-    <h1>{{post.title}}</h1>
+  <div style="background-color:#FFD700;width:100%;"  id="drag1"  draggable="true" ondragstart="drag(event)">
+    <h1 >{{post.title}}</h1>
     <h4>{{post.author}}</h4>
+    <h4 id="{{post.id}}">{{post.id}}</h4>
   </div>
 {% empty %}
   <div class="no-post">
     没有搜索到符合条件的文章
   </div>
 {% endfor %}
+<script type="text/javascript">
+function allowDrop(ev)
+{
+ev.preventDefault();
+}
+
+function drag(ev)
+{
+ev.dataTransfer.setData("Text",ev.target.id);
+}
+
+function drop(ev)
+{
+ev.preventDefault();
+var data=ev.dataTransfer.getData("Text");
+ev.target.appendChild(document.getElementById(data));
+
+  document.getElementById('id_ImageGroup').value=data;
+
+}
+</script>

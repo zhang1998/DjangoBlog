@@ -20,19 +20,6 @@
 
 
   </div>
-  <div>
-
-    {% for column in columns %}
-
-    <div style="position:relative;">
-      <img  id="image" src="{{column.imageLoca}}" class="img-circle" id="my_photo" name="user_face">
-
-      　<div style="position:absolute; z-index:2; left:60%; top:10px ;writing-mode : tb-rl ;"> {{column.textContent}}</div>
-
-    </div>
-
-  </div>
-  {% endfor %}
 
 </div><!-- #content -->
 <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
@@ -45,7 +32,6 @@
     $('#formadde').click(function () {
       var namea=document.getElementById('name');
       namee=namea.value
-      alert(namee)
       $.ajax({
         type:"POST",
         data: {'input':namee},
@@ -66,5 +52,7 @@
     });
 
   });
+
+
 
 </script>

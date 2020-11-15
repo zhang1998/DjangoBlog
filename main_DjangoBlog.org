@@ -272,12 +272,13 @@ http://localhost:8000/newGroup/choose/71/?csrfmiddlewaretoken=fBEdRCKPd4FrCKAg8Q
 
 **** TODO 搜索的拖动功能
 :LOGBOOK:
+CLOCK: [2020-11-15 日 14:49]--[2020-11-15 日 15:00] =>  0:11
 CLOCK: [2020-11-14 六 10:27]--[2020-11-14 六 10:52] =>  0:25
 :END:
 1. [X] 拖动
    1. [X] 把图片组
    2. [X] 拖动到另一个div里面
-2. [-] 获取内容
+2. [X] 获取内容
    1. [X] 获取自定义的值
       #+BEGIN_SRC html w3mshool 进行演示可
 <!DOCTYPE HTML>
@@ -321,14 +322,50 @@ document.getElementById('mainContent').innerHTML=data;
 </html>
 
       #+END_SRC
-   2. [ ] 传递django  搜索后返回的值
-      1. [ ] 一开始打的时候 能传入内容吗
-      2. [ ] 传入的不同 标签(看html)
-      3. [ ] 获取标签对应的内容document
-      4. [ ] 结合拖动功能
-      5. [ ] 方案一:id是传递进来的 然后获取相应的值
-3. [ ] 一个搜索能返回两个结果时候的效果如何
-4. [ ] 拖动/手动输入 相应的imagegroups  id
+   2. [X] 传递django  搜索后返回的值
+      1. [X] 一开始打的时候 能传入内容吗
+      2. [X] 传入的不同 标签(看html)
+3. [X] 实现功能:拖动
+   1. [X] 抄袭代码
+      #+BEGIN_SRC html
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+</div>
+
+
+<img id="drag1" src="/i/eg_dragdrop_w3school.gif" draggable="true" ondragstart="drag(event)" />
+
+
+<script type="text/javascript">
+function allowDrop(ev)
+{
+ev.preventDefault();
+}
+
+function drag(ev)
+{
+ev.dataTransfer.setData("Text",ev.target.id);
+}
+
+function drop(ev)
+{
+ev.preventDefault();
+var data=ev.dataTransfer.getData("Text");
+ev.target.appendChild(document.getElementById(data));
+document.getElementById('mainContent').innerHTML=data;
+
+}
+</script>
+      #+END_SRC
+   2. [X] 测试
+   3. [X] 实现自己的拖动
+4. [-] 实现功能:获取值
+   1. [X] 获取标签对应的内容document
+   2. [X] 结合拖动功能:传入值
+   3. [ ] 让值填入 表单
+5. [ ] 方案一:id是传递进来的 然后获取相应的值
+6. [ ] 一个搜索能返回两个结果时候的效果如何
+7. [ ] 拖动/手动输入 相应的imagegroups  id
 
 
 
