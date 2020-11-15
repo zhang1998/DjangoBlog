@@ -1,3 +1,6 @@
+<div>
+<h4 id="jjj"> 用来输出内容</h4>
+  </div>
 {% if error_msg %}
     <p>{{ error_msg }}</p>
 {% endif %}
@@ -29,8 +32,7 @@ function drop(ev)
 ev.preventDefault();
 var data=ev.dataTransfer.getData("Text");
 ev.target.appendChild(document.getElementById(data));
-
-  document.getElementById('drag1').parentNode.document.getElementById("id_ImageGroup").value=data;
+document.getElementById('drag1').parentNode.document.getElementById("id_ImageGroup").value=data;
 
 }
 </script>

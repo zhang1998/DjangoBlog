@@ -272,7 +272,7 @@ http://localhost:8000/newGroup/choose/71/?csrfmiddlewaretoken=fBEdRCKPd4FrCKAg8Q
 
 **** TODO 搜索的拖动功能
 :LOGBOOK:
-CLOCK: [2020-11-15 日 15:15]
+CLOCK: [2020-11-15 日 15:15]--[2020-11-15 日 15:41] =>  0:26
 CLOCK: [2020-11-15 日 15:03]--[2020-11-15 日 15:07] =>  0:04
 CLOCK: [2020-11-15 日 14:49]--[2020-11-15 日 15:00] =>  0:11
 CLOCK: [2020-11-14 六 10:27]--[2020-11-14 六 10:52] =>  0:25
@@ -373,9 +373,9 @@ document.getElementById("id_ImageGroup").value=data;
 
          #+END_SRC
          1. [X] 测试:window.parent.document.getElementById('tagId').attrname = '';  填入之后 就不能拖动iamge 了 不知道为啥
-         2. [ ] 测试: 将script 修改到父页面
-         3. [ ] 测试:
-         4. [ ] 测试:
+         2. [X] 测试: 将script 修改到父页面 修改后就不能拖动了
+         3. [X] 测试:重新找元素 从页面开始
+         4. [ ] 测试: 用另一段代码进行功能内容的修改 (.parent)
          5. [ ] 测试:
 
 5. [ ] 方案一:id是传递进来的 然后获取相应的值
