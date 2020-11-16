@@ -124,33 +124,38 @@ def newGroupColumn(request,imageGroups,Groups):
     if request.method=="POST":
         article_post_form = editorRnepy(data=request.POST)
         if article_post_form.is_valid():
-            cd = article_post_form.cleaned_data
-            try:
-                new_article=article_post_form.save(commit=False)
-                #new_article.column =
-                new_article.save()
 
+
+
+            try:
                 #进行 行处理 与另一个数据库的存入
                 #i创建相关的groups 与之对应
                 #每一个的处理
                 for e in  article_post_form.objects.all():
                     m=e.body.split('\n')
                     saimageId=0
-                    saImageLocal=0
                     showOr=0
                     TextContent=''
                     Groups=''
-                    for n in m:# 每一行内容
-                        #进行匹配和处理
-                        print(n)
 
+                    saImageLocal=imageGroups
+                    str="show"
+                    for n in m:# 每一行内容进行匹配和处理
 
                         # 匹配到 show 修改 image的id
-                        #其他都是递加存入
-
+                        if n.find(str2):
+                            spli=n.split('')
+                            saimageId=spli[1]
+                        else :
+                            TextContent=n
+                        #读取文字内容
+                        #其他都是递加存入 生成了数据对象
+                        showOr=showOr+1
+                        p=Group(imageId=saimageId,imageLoca=saImageLocal,showOrder=showOr,textContent=TextContent,groups=Groups)
+                        p.save()
                 return HttpResponse("1")
-            except:
-                return HttpResponse("2")
+            except Exception as e:
+                return HttpResponse(e)
         else:
             return HttpResponse("3")
     else:#下面是get的内容
