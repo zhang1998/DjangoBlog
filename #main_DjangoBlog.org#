@@ -428,8 +428,11 @@ ondragstart="drag(event)" width="336" height="69" />
 #+END_SRC
 *** TODO 调整功能
 1. [ ] choose 跳转到下一个内容  然后进入进行编辑页面
-** TODO [#A] image修改:根据image进行内容的修改
-SCHEDULED: <2020-11-14 六 12:30>
+** DONE [#A] image修改:根据image进行内容的修改
+CLOSED: [2020-11-17 二 21:09] SCHEDULED: <2020-11-14 六 12:30>
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-11-17 二 21:09]
+:END:
 两个部分
 左侧是 修改内容
 右侧是 展示图片供你参考的

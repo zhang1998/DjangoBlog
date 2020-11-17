@@ -71,9 +71,9 @@ def newGroupCreate(request):
                 new_Groups=post_form.save(commit=False)
                 #new_article.column =
                 new_Groups.save()
-                GroupsId=new_Groups.id
+                groupsId=new_Groups.id
                 #return HttpResponseRedirect("/newGroup/choose/")
-                return HttpResponseRedirect(reverse('newGroup:newGroupChoose',args=(GroupsId,)))
+                return HttpResponseRedirect(reverse('newGroup:newGroupChoose',args=(groupsId,)))
 
             except Exception as e:
                 return HttpResponse(e)
@@ -82,7 +82,7 @@ def newGroupCreate(request):
 
 
 #选择图片的源 组
-def newGroupChoose(request,Groups):
+def newGroupChoose(request,groupsId):
     if request.method == "GET":
         create_form= ChooseImageGroups()
         return render(request, 'newGroup/NewGroupChoosepr.html',{"form":create_form})
@@ -97,7 +97,7 @@ def newGroupChoose(request,Groups):
                 imageGroups=imageGroups['ImageGroup']
                 #f.fields['name']
                 #return HttpResponseRedirect("/newGroup/choose/")
-                return HttpResponseRedirect(reverse('newGroup:newGroupColumn',args=(imageGroups,Groups,)))
+                return HttpResponseRedirect(reverse('newGroup:newGroupColumn',args=(imageGroups,groupsId,)))
             except Exception as e:
 
                 return HttpResponse(imageGroups['ImageGroup'])
@@ -120,39 +120,46 @@ def coulumnSave(editorTest):
     # 找到了image就切换 相应的image
 
 
-def newGroupColumn(request,imageGroups,Groups):
+def newGroupColumn(request,imageGroups,groupsId):
     if request.method=="POST":
         article_post_form = editorRnepy(data=request.POST)
         if article_post_form.is_valid():
-
-
-
+            html=''
+            saimageId=0
+            showOr=0
+            TextContent=''
+            saImageLocal=imageGroups
+            stem="show"
+            mmm=article_post_form.cleaned_data['body'].split('\n')
+            saimageId=1
+            GroupsNam=Groups.objects.get(id=groupsId)
+            print(type(GroupsNam))
             try:
+                for n in mmm:
+
                 #进行 行处理 与另一个数据库的存入
                 #i创建相关的groups 与之对应
-                #每一个的处理
-                for e in  article_post_form.objects.all():
-                    m=e.body.split('\n')
-                    saimageId=0
-                    showOr=0
-                    TextContent=''
-                    Groups=''
-
-                    saImageLocal=imageGroups
-                    str="show"
-                    for n in m:# 每一行内容进行匹配和处理
+                    print("首行的n:"+n)
 
                         # 匹配到 show 修改 image的id
-                        if n.find(str2):
-                            spli=n.split('')
-                            saimageId=spli[1]
-                        else :
-                            TextContent=n
+                    if n.find(stem)!=-1:
+                        print("YES")
+                        print("n:")
+                        print(n)
+                        spli=n.split(' ')
+                        print(spli)
+                        saimageId=spli[1]
+                        continue
+                    else :
+                        TextContent=n
                         #读取文字内容
                         #其他都是递加存入 生成了数据对象
                         showOr=showOr+1
-                        p=Group(imageId=saimageId,imageLoca=saImageLocal,showOrder=showOr,textContent=TextContent,groups=Groups)
-                        p.save()
+                        print("///////////////////////////////////")
+                        p=Group(imageId=saimageId,imageLoca=saImageLocal,showOrder=showOr,textContent=TextContent,groups=GroupsNam)
+                        print("///////////////////////////////////")
+
+                    p.save()
                 return HttpResponse("1")
             except Exception as e:
                 return HttpResponse(e)
