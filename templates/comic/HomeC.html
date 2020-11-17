@@ -1,0 +1,39 @@
+{% extends 'comic_share/base.html' %}
+{% load static %}
+
+{% load blog_tags %}
+{% load cache %}
+{% block header %}
+
+<title>homepage | {{ SITE_DESCRIPTION }}</title>
+
+<meta name="description" content="{{ SITE_SEO_DESCRIPTION }}"/>
+<meta name="keywords" content="{{ SITE_KEYWORDS }}"/>
+<meta property="og:type" content="blog"/>
+<meta property="og:title" content="{{ SITE_NAME }}"/>
+<meta property="og:description" content="{{ SITE_DESCRIPTION }}"/>
+<meta property="og:url" content="{{ SITE_BASE_URL }}"/>
+<meta property="og:site_name" content="{{ SITE_NAME }}"/>
+
+{% endblock %}
+{% block content %}
+<style>
+  m1
+  {
+      font-family:"Times New Roman";
+      font-size:100px;
+      writing-mode : tb-rl ;
+      position:absolute;
+      z-index:2;
+      left:40%; top:10px
+  }
+
+</style>
+
+<div id="primary" class="site-content">
+  <div>
+    <h1> 进行内容的展示</h1>
+  </div>
+</div><!-- #primary -->
+
+{% endblock %}

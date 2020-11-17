@@ -40,7 +40,7 @@ handle403 = 'blog.views.permission_denied_view'
 urlpatterns = [
     url(r'^admin/', admin_site.urls),
 
-    url(r'^comic/',include("comic.urls")),
+    url(r'^comic/',include("comic.urls",namespace='comic')),
     url(r'^newGroup/',include("newGroup.urls",namespace='newGroup')),
     url(r'^mytest/',include("mytest.urls")),
     url(r'',include("mytest.urls")),

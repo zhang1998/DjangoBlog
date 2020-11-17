@@ -11,38 +11,19 @@
 
             </li>
 
-            {% load blog_tags %}
-            {% query nav_category_list parent_category=None as root_categorys %}
-            {% for node in root_categorys %}
-                {% include 'share_layout/nav_node.html' %}
-            {% endfor %}
-            {% if nav_pages %}
-                {% for node in nav_pages %}
+            <li>            <a href="{% url 'comic:LabelCV' %}">漫画分类</a></li>
+            <li>                <a href="{% url 'comic:DodingCV' %}">DOING</a></li>
+            <li>                <a href="{% url 'comic:CartoonCV' %}">动漫</a></li>
 
-                    <li id="menu-item-{{ node.pk }}"
-                        class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-{{ node.pk }}">
-                        <a href="{{ node.get_absolute_url }}">{{ node.title }}</a>
-                    </li>
-                {% endfor %}
-            {% endif %}
-            <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children">
+            <li>                <a href="{% url 'comic:GameCV' %}">游戏</a></li>
 
-                <a href="{% url "blog:archives" %}">文章归档</a>
-            </li>
+            <li>                <a href="{% url 'comic:ArticleCV' %}">文字</a></li>
 
-            <li>            <a href="/">漫画分类</a></li>
+            <li>                <a href="{% url 'comic:UserCV' %}">用户</a></li>
 
-            <li>                <a href="/">动漫</a></li>
+            <li>                <a href="{% url 'comic:SearchCV' %}">搜索</a></li>
 
-            <li>                <a href="/">游戏</a></li>
-
-            <li>                <a href="/">文字</a></li>
-
-            <li>                <a href="/">用户</a></li>
-
-            <li>                <a href="/">搜索</a></li>
-
-            <li>                <a href="/">上传漫画</a></li>
+            <li>                <a href="{% url 'comic:UpdateCV' %}">上传漫画</a></li>
 
 
         </ul>
