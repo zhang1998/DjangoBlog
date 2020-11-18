@@ -1,3 +1,8 @@
+#对一些公共资源的处理
+*.img
+*.png
+*.jpg
+*.jpeg
 # 一些从git上下载的文件 css功能文件之类的
 mp-mansory/
 # Byte-compiled / optimized / DLL files
