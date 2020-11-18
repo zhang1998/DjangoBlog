@@ -18,6 +18,11 @@
 {% endblock %}
 {% block content %}
 <style>
+  lie {
+    list-style: none;
+    float: left;
+    width: 20%;/*三列图片排列*/
+}
   m1
   {
       font-family:"Times New Roman";
@@ -30,25 +35,47 @@
 
 </style>
 
-<div id="primary" class="site-content">
-  <div>
+<div class="container">
+  <link rel="stylesheet" href="{% static 'comic/css/mansory-style.css' %}" type="text/css" />
 
-    {% for column in columns %}
+<div id="my-gallery-container">
+  {% for column in columns %}
+  <lie>
+
     <div class="in-anishe-text">
-      <a target="_blank" href="/" title="{{column.name}}" class="mod-cover-list-thumb mod-cover-effect ui-db" data-ping="new.ac_index.VIPComic.all.1">
-        <img alt="{{column.name}}"  class="lazy" style="display: block;" src="{{column.frontCover}}"  class="img-circle" id="my_photo" name="user_face">
-      </a>
+    <a target="_blank" href="/" title="{{column.name}}" class="mod-cover-list-thumb mod-cover-effect ui-db" data-ping="new.ac_index.VIPComic.all.1">
+      <img alt="{{column.name}}"  class="lazy" style="display: block;" src="{{column.frontCover}}"  class="img-circle" id="my_photo" name="user_face" height="200" width="200">
+    </a>
 
-      <h5>
-        <a target="_blank" title="comic-{{column.name}}" href="/" class="mod-cover-list-name" data-ping="new.ac_index.VIPComic.all.1">
-                       {{column.name}}                           </a>
-      </h5>
+    <h5>
+      <a target="_blank" title="comic-{{column.name}}" href="/" class="mod-cover-list-name" data-ping="new.ac_index.VIPComic.all.1">
+        {{column.name}}                           </a>
+    </h5>
 
 
-    </div>
-
-    {% endfor %}
   </div>
-</div><!-- #primary -->
-
+</lie>
+  {% endfor %}
+</div>
+</div>
+<script src='{% static "comic/js/jquery.js" %}'></script>
+<script src="{% static 'comic/js/mp.mansory.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'comic/js/layer.js'%}"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function ( $ ) {
+        $("#my-gallery-container").mpmansory(
+            {
+                childrenClass: 'falls_item', // default is a div
+                columnClasses: 'falls_padding', //add classes to items
+                breakpoints:{
+                    lg: 3,
+                    md: 4,
+                    sm: 6,
+                    xs: 12
+                },
+                distributeBy: { order: false, height: false, attr: 'data-order', attrOrder: 'desc' }, //default distribute by order, options => order: true/false, height: true/false, attr => 'data-order', attrOrder=> 'asc'/'desc'
+            }
+        );
+    });
+</script>
 {% endblock %}

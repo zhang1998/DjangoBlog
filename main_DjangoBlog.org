@@ -5,8 +5,11 @@ test:qazxcvbn
 test2:qazxcvbn
 数据库:
 djangoblog:hello
-* TODO [#A] 练习版本
-SCHEDULED: <2020-11-18 三>
+* DONE [#A] 练习版本
+CLOSED: [2020-11-18 三 16:45] SCHEDULED: <2020-11-18 三>
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-11-18 三 16:45]
+:END:
 ** DONE 学习
 CLOSED: [2020-11-07 六 14:15]
 :LOGBOOK:
@@ -740,13 +743,20 @@ v1
       2. [X] 标题
       3. [X] 其他信息
 
-** TODO 瀑布流展示图片
+** DONE 瀑布流展示图片
+CLOSED: [2020-11-18 三 16:38]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-11-18 三 16:38]
+CLOCK: [2020-11-18 三 16:20]--[2020-11-18 三 16:38] =>  0:18
+:END:
 1. [ ] 瀑布流的实现
    1. [ ] 实现
    2. [ ] 部分信息的格式进行 漫画内容的展示
    3. [ ] 展示全部的漫画内容 按照 图片
 
-** TODO 初步的功能:看看xmind第一部分的补全
+* TODO [#A] 初步的功能:看看xmind第一部分的补全
+SCHEDULED: <2020-11-18 三>
+* TODO v2
 ** TODO image修改:根据image进行内容的修改强化版本
 ** TODO image显示:
 #+BEGIN_SRC python
