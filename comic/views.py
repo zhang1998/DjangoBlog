@@ -1,8 +1,10 @@
 from django.shortcuts import render
-
+from newGroup.models import ImageSt
 # Create your views here.
 def HomeCV(request):
-    return render(request, 'comic/HomeC.html')
+    qu1=ImageSt.objects.all()
+    print(qu1)
+    return render(request, 'comic/HomeC.html',{"columns":qu1})
 def DodingCV(request):
     return render(request, 'comic/DodingC.html')
 def LabelCV(request):

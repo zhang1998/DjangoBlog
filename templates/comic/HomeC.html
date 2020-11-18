@@ -32,7 +32,22 @@
 
 <div id="primary" class="site-content">
   <div>
-    <h1> 进行内容的展示</h1>
+
+    {% for column in columns %}
+    <div class="in-anishe-text">
+      <a target="_blank" href="/" title="{{column.name}}" class="mod-cover-list-thumb mod-cover-effect ui-db" data-ping="new.ac_index.VIPComic.all.1">
+        <img alt="{{column.name}}"  class="lazy" style="display: block;" src="{{column.frontCover}}"  class="img-circle" id="my_photo" name="user_face">
+      </a>
+
+      <h5>
+        <a target="_blank" title="comic-{{column.name}}" href="/" class="mod-cover-list-name" data-ping="new.ac_index.VIPComic.all.1">
+                       {{column.name}}                           </a>
+      </h5>
+
+
+    </div>
+
+    {% endfor %}
   </div>
 </div><!-- #primary -->
 

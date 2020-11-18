@@ -40,6 +40,7 @@ class ImageSt(models.Model):
     description=models.CharField(max_length=300)
     #存储位置
     storepa=models.CharField(max_length=300) #直接放的就是文件名字
+    frontCover=models.CharField(max_length=300) #封面的位置
     #作品名字 用来自己识别的
     name=models.CharField(max_length=300)
     #作者 author

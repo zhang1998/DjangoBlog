@@ -5,7 +5,8 @@ test:qazxcvbn
 test2:qazxcvbn
 数据库:
 djangoblog:hello
-* TODO 练习版本
+* TODO [#A] 练习版本
+SCHEDULED: <2020-11-18 三>
 ** DONE 学习
 CLOSED: [2020-11-07 六 14:15]
 :LOGBOOK:
@@ -141,7 +142,7 @@ CLOSED: [2020-11-12 四 19:22]
 
 
 ** WAITING [#A] image修改:选择image
-SCHEDULED: <2020-11-14 六 11:30>
+SCHEDULED: <2020-11-17 二 11:30>
 :LOGBOOK:
 - State "WAITING"    from "TODO"       [2020-11-15 日 16:07] \\
   有一部分没有完成 之后再说
@@ -707,7 +708,44 @@ CLOSED: [2020-11-17 二 22:19]
 
 
 
-** TODO 主页:连续的展示框
+** DONE 主页:连续的展示框
+CLOSED: [2020-11-18 三 10:54]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-11-18 三 10:54]
+:END:
+1. [-] 一个内容是如何z组织的
+   1. [X] 先展示一个图片
+      1. [X] 纯链接
+         #+BEGIN_SRC
+<img  id="image" src="http://localhost:8000/static/assets/img/1.jpg" class="img-circle" id="my_photo" name="user_face">
+
+         #+END_SRC
+      2. [X] 链接和数据的结合
+         1. [X] 传递数据过去
+            1. [X] 传递: 源照片组的所有内容  所以是按照源照片组进行传递的
+               #+BEGIN_SRC
+v1
+<img  id="image" src="" class="img-circle" id="my_photo" name="user_face">
+
+               #+END_SRC
+            2. 先用local  进行初始的内容设置....
+            3. 要把所有的组都传递过去
+         2. [X] 将数据修改为合适的样子
+         3. [X] 进行显示
+   2. [X] 将图片和相应的信息练习起来
+      1. [X] 从w3shcool  进行练习  找到合适的 抄袭代码
+   3. [X] 从srore里面取一个内容展示出来
+   4. [X] 展示的内容是
+      1. [X] 图片
+      2. [X] 标题
+      3. [X] 其他信息
+
+** TODO 瀑布流展示图片
+1. [ ] 瀑布流的实现
+   1. [ ] 实现
+   2. [ ] 部分信息的格式进行 漫画内容的展示
+   3. [ ] 展示全部的漫画内容 按照 图片
+
 ** TODO 初步的功能:看看xmind第一部分的补全
 ** TODO image修改:根据image进行内容的修改强化版本
 ** TODO image显示:
@@ -728,7 +766,7 @@ CLOSED: [2020-11-17 二 22:19]
 ** TODO 更多功能的页面
 这个页面是为了以后更多功能的扩展 现在先等着作为用户的  功能链接
 
-*
+
 
 * TODO 添加用户功能
 ** TODO 注册 跳转到登录
@@ -987,7 +1025,7 @@ CLOSED: [2020-11-03 二 18:42]
       3. 使用六个例子
 
    3. django插件
-
+*** TODO 两个应用的图片 如何存储到一处 然后互相访问
 ** TODO 有没有更好的模板
 1. [ ] 搜索功能
 2. [ ] 创建页面
